@@ -6,13 +6,14 @@
 **/
 
 import WSConnection from './core/WSConnection';
+import App from './core/App';
 
 const _WSConnection = new WSConnection();
 const DOMInstallStatus = document.getElementById('install-status');
 const DOMDebug = document.getElementById('debug');
 
-let OFConnected = false;
-let kinectConnected = false;
+let OFConnected = true;
+let kinectConnected = true;
 
 function writeInDOM(status, info) {
   DOMInstallStatus.innerHTML = status;
@@ -20,6 +21,7 @@ function writeInDOM(status, info) {
 }
 function start() {
   writeInDOM('ready', '');
+  const _App = new App();
 }
 
 function stop() {
