@@ -5,10 +5,10 @@
 *
 **/
 
-import WSConnection from './core/WSConnection';
+import WSController from './core/WSController';
 import App from './core/App';
 
-const _WSConnection = new WSConnection();
+const WSCtrl = new WSController();
 const DOMInstallStatus = document.getElementById('install-status');
 const DOMDebug = document.getElementById('debug');
 
@@ -46,36 +46,32 @@ function checkInstallStatus() {
  * CONNECION TO NODE.JS
  * #########################
  */
-_WSConnection.onConnected(() => {
+WSCtrl.on('/serverStarted', () => {
   console.log('WebSocket Client Connected');
 });
 
-_WSConnection.onError((err) => {
+WSCtrl.on('/serverError', (err) => {
   writeInDOM('???', err);
 });
 
-_WSConnection.onDisconnected(() => {
+WSCtrl.on('/serverDown', () => {
   console.log('echo-protocol Client Closed');
   writeInDOM('???', 'Disconnected to the server');
 });
 
-_WSConnection.onOFStatusChange((isConnected) => {
+WSCtrl.on('/OFStatusChange', (isConnected) => {
   OFConnected = isConnected;
   checkInstallStatus();
 });
 
-_WSConnection.onKinectStatusChange((isConnected) => {
+WSCtrl.on('/KStatusChange', (isConnected) => {
   kinectConnected = isConnected;
   checkInstallStatus();
 });
 
-_WSConnection.onPositionReceived((data) => {
-  // TODO
-  console.log(data);
-});
-
-_WSConnection.onPlayCube((data) => {
-  console.log(data);
+WSCtrl.on('/playCube', (data) => {
+  let cube = JSON.parse(data);
+  console.log(cube);
 });
 
 /**
@@ -83,5 +79,5 @@ _WSConnection.onPlayCube((data) => {
  * INIT
  * #########################
  */
-_WSConnection.init();
+WSCtrl.init();
 checkInstallStatus();
