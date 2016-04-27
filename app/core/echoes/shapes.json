@@ -1,0 +1,61 @@
+{
+  "lower": {
+    "number":16,
+    "shapes": [
+      {
+        "name":"circle",
+        "number":8,
+        "stroke":2,
+        "color":"0x000000",
+        "strokeColor":[0x000000, 0x000000]
+      },
+      {
+        "name":"pill",
+        "number":8,
+        "stroke":2,
+        "color":"0x000000",
+        "strokeColor":[0x000000, 0x000000]
+      }
+    ]
+  },
+  "low": {
+    "shapes": {
+      "circle": {
+        "number":"0",
+        "color":"0x000000"
+      }
+    }
+  },
+  "middlelow": {
+    "shapes": {
+      "circle": {
+        "number":"0",
+        "color":"0x000000"
+      }
+    }
+  },
+  "middlehigh": {
+    "shapes": {
+      "circle": {
+        "number":"0",
+        "color":"0x000000"
+      }
+    }
+  },
+  "high": {
+    "shapes": {
+      "circle": {
+        "number":"0",
+        "color":"0x000000"
+      }
+    }
+  },
+  "higher": {
+    "shapes": {
+      "circle": {
+        "number":"0",
+        "color":"0x000000"
+      }
+    }
+  }
+}

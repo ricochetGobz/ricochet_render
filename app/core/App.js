@@ -1,0 +1,66 @@
+import Motion from './Motion';
+import TweenMax from 'gsap';
+
+class App {
+
+  /**
+   * App contructor
+   * @return void
+   */
+  constructor() {
+
+    this.el = document.querySelector( '.app' );
+
+    this.DELTA_TIME = 0;
+    this.LAST_TIME = Date.now();
+
+    this.motion = new Motion( "content" );
+    this.motion.attachToContainer();
+
+    this.addListeners();
+
+  }
+
+  /**
+   * addListeners
+   * @return void
+   */
+  addListeners() {
+
+    window.addEventListener( 'resize', this.onResize.bind(this) );
+    TweenMax.ticker.addEventListener( 'tick', this.update.bind(this) )
+
+  }
+
+  /**
+   * update
+   * - Triggered on every TweenMax tick
+   * @return void
+   */
+  update() {
+
+    this.DELTA_TIME = Date.now() - this.LAST_TIME;
+    this.LAST_TIME = Date.now();
+
+    this.motion.update( this.DELTA_TIME );
+    this.motion.render();
+
+  }
+
+  /**
+   * onResize
+   * - Triggered when window is resized
+   * @param  {obj} evt
+   * @return void
+   */
+  onResize( evt ) {
+
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    this.motion.resize( w, h );
+
+  }
+
+}
+
+module.exports = App;
