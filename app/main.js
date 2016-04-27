@@ -74,6 +74,10 @@ _WSConnection.onPositionReceived((data) => {
   console.log(data);
 });
 
+_WSConnection.onPlayCube((data) => {
+  console.log(data);
+});
+
 /**
  * #########################
  * INIT

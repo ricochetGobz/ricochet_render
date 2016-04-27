@@ -17,6 +17,7 @@ const OPEN_FRAMEWORKS_STATUS_CHANGE = 'ofstatuschange';
 const KINECT_STATUS_CHANGE = 'kinectstatuschange';
 
 const POSITION_RECEIVED = 'positionreceived';
+const PLAY_CUBE = 'playcube';
 
 
 export default class WSConnection {
@@ -99,6 +100,12 @@ export default class WSConnection {
       console.log(data);
       // TODO
       callback(data);
+    };
+  }
+
+  onPlayCube(callback) {
+    this._listeners[PLAY_CUBE] = (data) => {
+      callback(JSON.parse(data));
     };
   }
 }
