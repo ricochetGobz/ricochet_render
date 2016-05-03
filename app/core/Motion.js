@@ -27,8 +27,8 @@ export default class Motion {
 
    this.scene = new Scene( w, h );
 
-   this.shape = new Shape();
-   this.scene.addChild( this.shape );
+  //  this.shape = new Shape();
+  //  this.scene.addChild( this.shape );
 
    let size = 200;
    this.cube = new Cube(w /2 - size /2, h /2 - size /2, size);
@@ -55,15 +55,15 @@ export default class Motion {
   * @return void
   */
  update( DELTA_TIME ) {
-
-   this.shape.update();
-
-    if ( this.shape.position.x <= 0 || this.shape.position.x >= this.scene.width ) {
-      this.shape.vx *= -1;
-    }
-    if ( this.shape.position.y <= 0 || this.shape.position.y >= this.scene.height ) {
-      this.shape.vy *= -1;
-    }
+   //
+  //  this.shape.update();
+   //
+  //   if ( this.shape.position.x <= 0 || this.shape.position.x >= this.scene.width ) {
+  //     this.shape.vx *= -1;
+  //   }
+  //   if ( this.shape.position.y <= 0 || this.shape.position.y >= this.scene.height ) {
+  //     this.shape.vy *= -1;
+  //   }
 
  }
 

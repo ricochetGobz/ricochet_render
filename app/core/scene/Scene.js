@@ -19,9 +19,10 @@ export default class Scene {
 
     this.children = [];
 
-    this.stage = new PIXI.Stage(0x0000FF);
-    this.renderer = new PIXI.WebGLRenderer( this.width, this.height );
-    this.renderer.backgroundColor = 0x0000FF;
+    this.stage = new PIXI.Stage(0xffffff);
+    this.renderer = new PIXI.WebGLRenderer( this.width, this.height,{antialias: true});
+    this.renderer.backgroundColor = 0xffffff;
+    console.log(this.renderer);
   }
 
   /**

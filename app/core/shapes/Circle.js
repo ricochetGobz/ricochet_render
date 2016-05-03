@@ -12,23 +12,25 @@ export default class Circle extends Shape {
    * - Extends PIXI.Graphics
    * @return void
    */
-  constructor(x, y, size, color) {
+  constructor( data, posx, posy ) {
 
-    super();
+    super( data, posx, posy );
 
-    this.vx = Math.random();
-    this.vy = Math.random();
+  }
 
-    this.beginFill(color);
-    this.drawCircle( x, y, size );
-    this.endFill();
+  draw() {
+    super.draw();
 
+    this.mask.drawCircle( this.data.offset.x + this.data.position.x, this.data.offset.y + this.data.position.y, this.data.size );
+    this.mask.endFill();
+    this.addChild(this.mask);
+
+    this.sprite.mask = this.mask;
   }
 
   update() {
 
-    this.position.x += this.vx;
-    this.position.y += this.vy;
+    super.update();
 
   }
 }

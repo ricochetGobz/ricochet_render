@@ -1,0 +1,180 @@
+{
+  "shapes": [
+    {
+      "id": 1,
+      "name": "circle",
+      "size": 80,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#5daae1", "#76c1c6"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 2,
+      "name": "circle",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#dcd3f0", "#d4d8ed"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 3,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#2ac0d1"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 4,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#2ac0d1"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 5,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#2ac0d1"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 6,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#2ac0d1"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 7,
+      "name": "circle",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#9272a5", "#3951b0"],
+      "stroke": true,
+      "randomness":0
+    },
+    {
+      "id": 8,
+      "name": "circle",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#9272a5", "#3951b0"],
+      "stroke": true,
+      "randomness":0
+    },
+    {
+      "id": 9,
+      "name": "pill",
+      "size": 50,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#a8539b"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 10,
+      "name": "pill",
+      "size": 50,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#a8539b"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 11,
+      "name": "pill",
+      "size": 50,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#a8539b"],
+      "stroke": false,
+      "randomness":0
+    }
+  ]
+}
