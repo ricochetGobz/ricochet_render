@@ -5,7 +5,7 @@
 **/
 
 import Circle from '../shapes/Circle';
-import Shapes from '../echoes/shapes';
+import Shapes from '../echoes/lower-data';
 
 const colors = [0xa8539b, 0x2ac0d1];
 const gradients = [{start:0xdcd3f0, end:0x79d8ed},
@@ -14,42 +14,33 @@ const gradients = [{start:0xdcd3f0, end:0x79d8ed},
 
 export default class Lower extends PIXI.Container{
 
-
   /**
    * [Scene contructor]
    * @return void
    */
-  constructor(x, y) {
+  constructor(owner, x, y) {
     super();
+    this.owner = owner;
     this.shapes = [];
     this.init(x, y);
   }
 
   init(x, y) {
     let i = 0,
-        shapes = Shapes.lower.shapes,
-        delta = (2 * Math.PI) / Shapes.lower.number;
-    console.log(delta);
-    
+        shapes = Shapes.shapes,
+        delta = (2 * Math.PI) / shapes.length;
+
     for (i = 0; i < shapes.length ; i++) {
 
-      switch(shapes[i].name) {
-        case "circle":
-          for (var j = 0; j < shapes[i].number; j++) {
-            let shape = new Circle(x + 25, y + 25, 50, colors[i % colors.length]);
-            this.shapes.push(shape);
-            this.addChild(shape);
-          }
-        break;
-        case "pill":
-          for (var j = 0; j < shapes[i].number; j++) {
-            let shape = new Circle(x + 25, y + 25, 50, colors[i % colors.length]);
-            this.shapes.push(shape);
-            this.addChild(shape);
-          }
-        break;
-      }
+      let posx = this.owner.position.x + this.owner.size /2 * Math.cos(i*delta);
+      let posy = this.owner.position.y + this.owner.size /2 * Math.sin(i*delta);
+      let shape = this.owner.factory.createShape(shapes[i], posx, posy);
 
+      this.shapes.push(shape);
+      this.addChild(shape);
+      console.log(shape);
+      if(shape.mask) console.log(shape.mask)
+      // this.addChild(shape.mask);
     }
   }
 }
