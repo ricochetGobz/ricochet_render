@@ -7,20 +7,9 @@
 
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import utils from './utils';
+import adrs from './addresses';
 
 const PORT = 3333;
-
-
-const addresses = [
-  // PRIVATE
-  '/serverStarted',
-  '/serverDown',
-  '/serverError',
-  // RECEIVERS
-  '/OFStatusChange',
-  '/KStatusChange',
-  '/playCube',
-];
 
 
 export default class WSConnection {
@@ -33,15 +22,15 @@ export default class WSConnection {
     this._client = new W3CWebSocket(`ws://localhost:${PORT}/`, 'echo-protocol');
 
     this._client.onerror = (err) => {
-      this._callListener('/serverError', err);
+      this._callListener(adrs.SERVER_ERROR, err);
     };
 
     this._client.onopen = () => {
-      this._callListener('/serverStarted');
+      this._callListener(adrs.SERVER_CONNECTED);
     };
 
     this._client.onclose = () => {
-      this._callListener('/serverDown');
+      this._callListener(adrs.SERVER_DISCONNECTED);
     };
 
     this._client.onmessage = (e) => {
@@ -53,7 +42,7 @@ export default class WSConnection {
   }
 
   _callListener(address, data) {
-    if (addresses.indexOf(address) === -1) {
+    if (!utils.addressExist(address)) {
       console.log(`_callListener ERROR : ${address} doesn't exist.`);
       return;
     }
@@ -77,7 +66,7 @@ export default class WSConnection {
   }
 
   on(address, callback) {
-    if (addresses.indexOf(address) === -1) {
+    if (!utils.addressExist(address)) {
       console.log(`on() ERROR : ${address} doesn't exist.`);
       return;
     }
