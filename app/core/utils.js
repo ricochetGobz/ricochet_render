@@ -5,6 +5,8 @@
 *
 **/
 
+import adrs from './addresses';
+
 const util = {
   isJSON: (str) => {
     try {
@@ -13,6 +15,12 @@ const util = {
       return false;
     }
     return true;
+  },
+  addressExist: (adr) => {
+    for (const key in adrs) {
+      if (adrs[key] === adr) return true;
+    }
+    return false;
   },
 };
 
