@@ -9,6 +9,15 @@ class App {
    */
   constructor() {
 
+    this.ready = true;
+
+  }
+
+  /**
+   * start
+   * @return void
+   */
+  start() {
     this.el = document.querySelector( '.app' );
 
     this.DELTA_TIME = 0;
@@ -18,9 +27,8 @@ class App {
     this.motion.attachToContainer();
 
     this.addListeners();
-
+    
   }
-
   /**
    * addListeners
    * @return void

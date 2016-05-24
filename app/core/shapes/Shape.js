@@ -32,7 +32,7 @@ export default class Shape extends PIXI.Graphics {
     var ctx = canvas.getContext( '2d' );
     var gradient = ctx.createLinearGradient( 0, 0, 170, 0 );
     gradient.addColorStop( 0, this.data.colors[0] );
-    if (this.data.colors[1]) gradient.addColorStop( 1, this.data.colors[1]);
+    if ( this.data.colors[1] ) gradient.addColorStop( 1, this.data.colors[1] );
     else gradient.addColorStop( 1, this.data.colors[0] );
 
     ctx.fillStyle = gradient;

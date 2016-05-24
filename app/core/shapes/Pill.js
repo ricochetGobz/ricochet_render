@@ -21,15 +21,17 @@ export default class Pill extends Shape {
    draw() {
      super.draw();
 
-     this.mask.drawRoundedRect( this.data.offset.x + this.data.position.x, this.data.offset.y + this.data.position.y, this.data.size, this.data.size/4.5, this.data.size/9 );
+     this.mask.drawRoundedRect( this.data.offset.x + this.data.position.x, this.data.offset.y + this.data.position.y, this.data.size, this.data.size /4.5, this.data.size /9 );
      this.mask.endFill();
-     this.addChild(this.mask);
+     this.addChild( this.mask );
 
      this.sprite.mask = this.mask;
-     console.log(this.anchor);
+    //  console.log( this.anchor );
    }
 
   update() {
+
     super.update();
+
   }
 }

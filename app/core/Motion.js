@@ -6,8 +6,7 @@
 **/
 
 import Scene from './scene/Scene';
-import Shape from './shapes/Shape';
-import Cube from './Cube';
+import EchoFactory from './echoes/EchoFactory';
 
 const resolution = 200;
 
@@ -30,10 +29,7 @@ export default class Motion {
   //  this.shape = new Shape();
   //  this.scene.addChild( this.shape );
 
-   let size = 200;
-   this.cube = new Cube(w /2 - size /2, h /2 - size /2, size);
-   this.scene.addChild( this.cube );
-   this.cube.owner = this;
+   this.factory = new EchoFactory();
 
  }
 
@@ -76,6 +72,15 @@ export default class Motion {
 
    this.scene.render();
 
+ }
+
+ /**
+  * createEcho
+  * - Creates ehco with shapes
+  * @return void
+  */
+ createEcho(x, y) {
+   this.scene.addChildAt(this.factory.createEcho("lower", x, y), 0);
  }
 
  /**

@@ -21,7 +21,8 @@ function writeInDOM(status, info) {
 }
 function start() {
   writeInDOM('ready', '');
-  const _App = new App();
+
+  _App.start();
 }
 
 function stop() {
@@ -70,8 +71,9 @@ WSCtrl.on('/KStatusChange', (isConnected) => {
 });
 
 WSCtrl.on('/playCube', (data) => {
-  let cube = JSON.parse(data);
-  console.log(cube);
+  let cube = JSON.parse(JSON.parse(data));
+  console.log("cube", cube);
+  _App.motion.createEcho(cube.x, cube.y);
 });
 
 /**
@@ -80,4 +82,5 @@ WSCtrl.on('/playCube', (data) => {
  * #########################
  */
 WSCtrl.init();
+const _App = new App();
 checkInstallStatus();
