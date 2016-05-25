@@ -7,6 +7,8 @@
 
 import Scene from './scene/Scene';
 import EchoFactory from './echoes/EchoFactory';
+import Text from './Utils/Text';
+import Stroke from './tuto/CubeStroke';
 
 const resolution = 200;
 
@@ -33,6 +35,30 @@ export default class Motion {
 
  }
 
+ displayTuto(nbr) {
+   console.log(nbr)
+   if ( nbr > 2 ) return;
+   if ( nbr == 0 ) {
+     console.log("début")
+     if(this.text && this.stroke) {
+       this.text.show();
+       this.stroke.show();
+     } else {
+       this.text = new Text("Dispose délicatement un ricocube dans ton anus");
+       this.stroke = new Stroke(550, 300);
+       this.scene.addChild(this.text);
+       this.scene.addChild(this.stroke);
+     }
+
+   } else {
+     if(this.text && this.stroke) {
+       this.text.hide();
+       this.stroke.hide();
+     }
+   }
+
+ }
+
  /**
   * [Experiment attachToContainer]
   * - Appends the scene to Experiment's DOM container
@@ -41,7 +67,8 @@ export default class Motion {
  attachToContainer() {
 
    this.container.appendChild( this.scene.renderer.view );
-
+  //  this.scene.addChild(new Text("blablabla"));
+  //  this.scene.addChild(new Stroke(100, 100));
  }
 
  /**
@@ -81,6 +108,7 @@ export default class Motion {
   */
  createEcho(x, y) {
    this.scene.addChildAt(this.factory.createEcho("lower", x, y), 0);
+
  }
 
  /**

@@ -4,7 +4,7 @@
 *
 **/
 
-export default class Echo{
+export default class Echo {
 
   /**
    * [Experiment contructor]
@@ -14,6 +14,7 @@ export default class Echo{
   constructor( data, posx, posy ) {
 
     this.draw();
+
   }
 
   draw() {

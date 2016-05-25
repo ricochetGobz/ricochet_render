@@ -24,7 +24,7 @@ const adresses = {
   CUBE_DRAG_END: '/C_DragEnd',
   CUBE_PLAYED: '/C_Played',
   // Cubes
-  NBR_CUBE_FOUNDED: '/C_NbrCubesFounded',
+  NBR_CUBE_FOUND: '/C_NbrCubesFound',
   // Bracelet
   BRACELET_CONNECTED: '/B_Connected',
   BRACELET_DISCONNECTED: '/B_Disconnected',
