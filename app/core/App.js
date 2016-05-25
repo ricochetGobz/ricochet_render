@@ -27,7 +27,7 @@ class App {
     this.motion.attachToContainer();
 
     this.addListeners();
-    
+
   }
   /**
    * addListeners

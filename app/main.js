@@ -10,6 +10,7 @@ import App from './core/App';
 
 import adrs from './core/addresses';
 
+let _App = false;
 const WSCtrl = new WSController();
 const DOMInstallStatus = document.getElementById('install-status');
 const DOMDebug = document.getElementById('debug');
@@ -73,9 +74,12 @@ WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {
 });
 
 WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
-  let cube = JSON.parse(JSON.parse(data));
-  console.log("cube", cube);
+  const cube = JSON.parse(data);
   _App.motion.createEcho(cube.x, cube.y);
+});
+
+WSCtrl.on(adrs.NBR_CUBE_FOUNDED, (data) => {
+  console.log("Nbr of cube on table :", data);
 });
 
 /**
@@ -84,5 +88,5 @@ WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
  * #########################
  */
 WSCtrl.init();
-const _App = new App();
+_App = new App();
 checkInstallStatus();
