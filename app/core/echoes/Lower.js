@@ -20,14 +20,14 @@ export default class Lower extends PIXI.Container{
    * [Scene contructor]
    * @return void
    */
-  constructor(owner, x, y) {
+  constructor( owner, x, y ) {
     super();
     this.owner = owner;
     this.shapes = [];
     this.init(x, y);
   }
 
-  init(x, y) {
+  init( x, y ) {
     let i = 0,
         shapes = Shapes.shapes,
         delta = (2 * Math.PI) / shapes.length;
@@ -38,7 +38,7 @@ export default class Lower extends PIXI.Container{
       let posy = y + cubeSize /2 * Math.sin(i*delta);
       // let factory = new Factory();
       let shape = new Factory().createShape(shapes[i], posx, posy);
-  
+
       this.shapes.push(shape);
       this.addChild(shape);
       // this.addChild(shape.mask);

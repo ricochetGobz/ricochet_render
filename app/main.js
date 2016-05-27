@@ -24,8 +24,11 @@ function writeInDOM(status, info) {
 }
 function start() {
   writeInDOM('ready', '');
+  if(!_App.isOn) {
+    _App.isOn = true;
+    _App.start();
+  }
 
-  _App.start();
 }
 
 function stop() {
@@ -79,7 +82,9 @@ WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
 });
 
 WSCtrl.on(adrs.NBR_CUBE_FOUND, (data) => {
-  console.log('Nbr of cube on table :', data);
+  console.log("Nbr of cube on table :", data);
+  console.log(typeof data)
+  _App.motion.displayTuto(data);
 });
 
 /**
@@ -89,4 +94,5 @@ WSCtrl.on(adrs.NBR_CUBE_FOUND, (data) => {
  */
 WSCtrl.init();
 _App = new App();
+_App.isOn = false;
 checkInstallStatus();
