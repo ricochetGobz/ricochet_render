@@ -1,33 +1,32 @@
 const adresses = {
   // Server
-  SERVER_STATUS_CHANGE: '/S_StatusChange',
-  SERVER_CONNECTED: '/S_Connected',
-  SERVER_DISCONNECTED: '/S_Disconnected',
-  SERVER_ERROR: '/S_Error',
+  SERVER_STATUS_CHANGE: '/server/statuschange',
+  SERVER_CONNECTED: '/server/connected',
+  SERVER_DISCONNECTED: '/server/disconnected',
   // WebRender
-  WEB_RENDER_STATUS_CHANGE: '/WR_StatusChange',
-  WEB_RENDER_CONNECTED: '/WR_Connected',
-  WEB_RENDER_DISCONNECTED: '/WR_Disconnected',
+  WEB_RENDER_STATUS_CHANGE: '/webrender/statuschange',
+  WEB_RENDER_CONNECTED: '/webrender/connected',
+  WEB_RENDER_DISCONNECTED: '/webrender/disconnected',
   // OpenFramework
-  OPEN_FRAMEWORKS_STATUS_CHANGE: '/OF_StatusChange',
-  OPEN_FRAMEWORKS_CONNECTED: '/OF_Connected',
-  OPEN_FRAMEWORKS_DISCONNECTED: '/OF_Disconnected',
+  OPEN_FRAMEWORKS_STATUS_CHANGE: '/openframeworks/statuschange',
+  OPEN_FRAMEWORKS_CONNECTED: '/openframeworks/connected',
+  OPEN_FRAMEWORKS_DISCONNECTED: '/openframeworks/disconnected',
   // Kinect
-  KINECT_STATUS_CHANGE: '/K_StatusChange',
-  KINECT_CONNECTED: '/K_Connected',
-  KINECT_DISCONNECTED: '/K_Disconnected',
+  KINECT_STATUS_CHANGE: '/kinect/statuschange',
+  KINECT_CONNECTED: '/kinect/connected',
+  KINECT_DISCONNECTED: '/kinect/disconnected',
   // Cube
-  CUBE_CONNECTED: '/C_Connected',
-  CUBE_DISCONNECTED: '/C_Disconnected',
-  CUBE_TOUCHED: '/C_Touched',
-  CUBE_DRAGGED: '/C_Dragged',
-  CUBE_DRAG_END: '/C_DragEnd',
-  CUBE_PLAYED: '/C_Played',
+  CUBE_CONNECTED: '/cube/connected',
+  CUBE_DISCONNECTED: '/cube/disconnected',
+  CUBE_TOUCHED: '/cube/touched',
+  CUBE_DRAGGED: '/cube/dragged',
+  CUBE_DRAG_END: '/cube/dragend',
+  CUBE_PLAYED: '/cube/played',
   // Cubes
-  NBR_CUBE_FOUNDED: '/C_NbrCubesFounded',
+  NBR_CUBE_FOUND: '/cubes/nfound',
   // Bracelet
-  BRACELET_CONNECTED: '/B_Connected',
-  BRACELET_DISCONNECTED: '/B_Disconnected',
+  BRACELET_CONNECTED: '/bracelet/connected',
+  BRACELET_DISCONNECTED: '/bracelet/disconnected',
 };
 
 module.exports = adresses;
