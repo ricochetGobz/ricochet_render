@@ -9,8 +9,7 @@ import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import utils from './utils';
 import adrs from './addresses';
 
-const PORT = 3333;
-
+const PORT = process.env.PORT || 8080;
 
 export default class WSConnection {
   constructor() {
@@ -36,6 +35,7 @@ export default class WSConnection {
     this._client.onmessage = (e) => {
       if (typeof e.data === 'string') {
         const msg = JSON.parse(e.data);
+        console.log(`    Receive : ${msg.address}, ${msg.data}`);
         this._callListener(msg.address, msg.data);
       }
     };

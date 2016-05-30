@@ -10,13 +10,13 @@ import App from './core/App';
 
 import adrs from './core/addresses';
 
-let _App = false;
 const WSCtrl = new WSController();
 const DOMInstallStatus = document.getElementById('install-status');
 const DOMDebug = document.getElementById('debug');
 
-let OFConnected = true;
-let kinectConnected = true;
+let _App = false;
+let OFConnected = false;
+let kinectConnected = false;
 
 function writeInDOM(status, info) {
   DOMInstallStatus.innerHTML = status;
@@ -57,9 +57,9 @@ WSCtrl.on(adrs.SERVER_CONNECTED, () => {
   console.log('WebSocket Client Connected');
 });
 
-WSCtrl.on(adrs.SERVER_ERROR, (err) => {
-  writeInDOM('???', err);
-});
+// WSCtrl.on(adrs.SERVER_ERROR, (err) => {
+//   writeInDOM('???', err);
+// });
 
 WSCtrl.on(adrs.SERVER_DISCONNECTED, () => {
   console.log('echo-protocol Client Closed');
