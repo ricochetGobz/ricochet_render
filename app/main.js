@@ -79,6 +79,7 @@ WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {
 WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
   const cube = JSON.parse(data);
   _App.motion.createEcho(cube.x, cube.y);
+  _App.motion.onAdd(cube);
 });
 
 WSCtrl.on(adrs.NBR_CUBE_FOUND, (data) => {

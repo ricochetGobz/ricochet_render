@@ -8,6 +8,8 @@
 import Scene from './scene/Scene';
 import EchoFactory from './echoes/EchoFactory';
 import Tuto from './tuto/Tuto';
+import Button from './timer/Button';
+import Timer from './timer/Timer';
 
 
 const resolution = 200;
@@ -23,10 +25,10 @@ export default class Motion {
 
   //  let w = 4 * resolution;
   //  let h = 3 * resolution;
-  let w = window.innerWidth;
-  let h = window.innerHeight;
+  this.w = window.innerWidth;
+  this.h = window.innerHeight;
 
-   this.scene = new Scene( w, h );
+   this.scene = new Scene( this.w, this.h );
 
   //  this.shape = new Shape();
   //  this.scene.addChild( this.shape );
@@ -35,6 +37,19 @@ export default class Motion {
    this.tuto = new Tuto();
    this.scene.addChild(this.tuto);
 
+   this.timer = new Timer();
+   this.scene.addChild(this.timer);
+
+   this.button = new Button();
+   this.scene.addChild(this.button);
+   this.button.activate(this);
+
+ }
+
+ toggleTimer() {
+   this.timer.isOn = !this.timer.isOn;
+   if ( this.timer.isOn ) this.timer.start();
+   else this.timer.stop();
  }
 
  displayTuto(nbr) {
@@ -107,4 +122,5 @@ export default class Motion {
    this.scene.resize( _width, _height );
 
  }
+
 }

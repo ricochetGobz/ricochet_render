@@ -42,7 +42,7 @@ export default class Text extends PIXI.Graphics {
     this.rect.position.y = -PADDING.y - 5;
     this.addChild(this.rect);
 
-    this.position.x = this.position.y = 600;
+    this.position.x = this.position.y = window.innerWidth / 2 - this.text.width / 2 - PADDING.x / 2;
 
     this.initSetup();
     this.hidden = true;
