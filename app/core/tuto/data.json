@@ -1,8 +1,26 @@
 {
   "tuto": [
-    "Dispose délicatement un ricocube dans ton anus",
-    "Fais pas ta mijorée, t'as la place pour un deuxième ;)",
-    "Là si tu continues, t'es dans l'abus, frère"
+    {
+      "wording":"PLACE UN CUBE",
+      "size": {
+        "width":445,
+        "height":125
+      }
+    },
+    {
+      "wording":"PLACE UN AUTRE",
+      "size": {
+        "width":445,
+        "height":125
+      }
+    },
+    {
+      "wording":"Là si tu continues, t'es dans l'abus, frère",
+      "size": {
+        "width":290,
+        "height":80
+      }
+    }
   ],
   "timer": []
 }

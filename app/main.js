@@ -44,7 +44,7 @@ function checkInstallStatus() {
   if (installIsReady()) {
     start();
   } else {
-    stop();
+    start();
   }
 }
 

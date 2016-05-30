@@ -7,9 +7,8 @@
 
 import Scene from './scene/Scene';
 import EchoFactory from './echoes/EchoFactory';
-import Text from './Utils/Text';
-import Stroke from './tuto/CubeStroke';
-import DataTuto from './tuto/data'
+import Tuto from './tuto/Tuto';
+
 
 const resolution = 200;
 
@@ -33,30 +32,14 @@ export default class Motion {
   //  this.scene.addChild( this.shape );
 
    this.factory = new EchoFactory();
+   this.tuto = new Tuto();
+   this.scene.addChild(this.tuto);
 
  }
 
  displayTuto(nbr) {
-   let text = DataTuto.tuto[nbr];
-   if ( text )  {
-     console.log("début")
-     if(this.text && this.stroke) {
-       this.text.text = text;
-       this.text.show();
-       this.stroke.show();
-     } else {
-       this.text = new Text("PLACE UN CUBE", {font:"thin 64px Circular"});
-       this.stroke = new Stroke(550, 300);
-       this.scene.addChild(this.text);
-       this.scene.addChild(this.stroke);
-     }
 
-   } else {
-     if(this.text && this.stroke) {
-       this.text.hide();
-       this.stroke.hide();
-     }
-   }
+   this.tuto.displayText( nbr );
 
  }
 

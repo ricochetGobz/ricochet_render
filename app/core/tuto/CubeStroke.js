@@ -4,7 +4,7 @@
 *
 **/
 
-const size = 200;
+const size = 250 /4 ;
 
 export default class CubeStroke extends PIXI.Graphics {
 
@@ -26,7 +26,7 @@ export default class CubeStroke extends PIXI.Graphics {
 
   draw( x, y ) {
 
-    this.lineStyle(5, 0xFF0000);
+    this.lineStyle(15/4, 0x5C74C0);
     this.drawRect( x, y, size, size );
 
   }
