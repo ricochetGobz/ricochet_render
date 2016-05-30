@@ -12,11 +12,11 @@ export default class Text extends PIXI.Text {
    * @return void
    */
   constructor( text, options ) {
-
     if (!options) {
-      let options = { font:"24px Circular", fill:"0x000000", align:"center"  };
+      let options = { font:"bite", fill:"0x000000", align:"center"  };
     }
     super( text, options );
+    // this.font = "56px";
     this.position.x = this.position.y = 50;
     this.alpha = 0;
     this.show();

@@ -9,6 +9,7 @@ import Scene from './scene/Scene';
 import EchoFactory from './echoes/EchoFactory';
 import Text from './Utils/Text';
 import Stroke from './tuto/CubeStroke';
+import DataTuto from './tuto/data'
 
 const resolution = 200;
 
@@ -36,15 +37,15 @@ export default class Motion {
  }
 
  displayTuto(nbr) {
-   console.log(nbr)
-   if ( nbr > 2 ) return;
-   if ( nbr == 0 ) {
+   let text = DataTuto.tuto[nbr];
+   if ( text )  {
      console.log("début")
      if(this.text && this.stroke) {
+       this.text.text = text;
        this.text.show();
        this.stroke.show();
      } else {
-       this.text = new Text("Dispose délicatement un ricocube dans ton anus");
+       this.text = new Text("PLACE UN CUBE", {font:"thin 64px Circular"});
        this.stroke = new Stroke(550, 300);
        this.scene.addChild(this.text);
        this.scene.addChild(this.stroke);
