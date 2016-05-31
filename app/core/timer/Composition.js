@@ -19,6 +19,7 @@ export default class Composition extends Object {
     this.name = "name";
     this.author = "author";
     this.date = Date.now();
+    this.duration = 0;
 
   }
 
@@ -28,6 +29,7 @@ export default class Composition extends Object {
         x: data.x,
         y: data.y
       },
+      time:this.parseTime(Date.now() - this.date),
       cube: data.cubeId,
       sound: data.soundId
     } );
@@ -61,6 +63,23 @@ export default class Composition extends Object {
       if(newDate){
           this.date = newDate;
       }
+  }
+
+  get duration() {
+        return this._duration;
+    }
+
+  set date(newDuration){
+      if(newDuration){
+          this.duration = newDuration;
+      }
+  }
+
+  parseTime(ms) {
+     let min = (ms/1000/60) << 0,
+      sec = (ms/1000) % 60;
+
+    return {min:min, sec:sec};
   }
 
 }
