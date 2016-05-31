@@ -53,13 +53,14 @@ export default class WSConnection {
     console.log(`_callListener ERROR : ${address} not listened`);
   }
 
-  _send(message) {
-    if (typeof message !== 'string') {
-      console.error('ERROR : Cannot send with message. It must be stringify');
+  send(address, data) {
+    if (!utils.addressExist(address)) {
+      console.log(`WSController.send() ERROR : ${address} doesn't exist.`);
       return;
     }
+
     if (this._client.readyState === this._client.OPEN) {
-      this._client.send(message);
+      this._client.send(JSON.stringify({ address, data }));
     } else {
       console.error('ERROR : server is lost');
     }

@@ -7,6 +7,12 @@ const adresses = {
   WEB_RENDER_STATUS_CHANGE: '/webrender/statuschange',
   WEB_RENDER_CONNECTED: '/webrender/connected',
   WEB_RENDER_DISCONNECTED: '/webrender/disconnected',
+  // Gallery
+  GALLERY_STATUS_CHANGE: '/gallery/statuschange',
+  GALLERY_CONNECTED: '/gallery/connected',
+  GALLERY_DISCONNECTED: '/gallery/disconnected',
+  GALLERY_COMPOSITIONS: '/gallery/compositions',
+  GALLERY_NEW_COMPOSITION: '/gallery/newcomposition',
   // OpenFramework
   OPEN_FRAMEWORKS_STATUS_CHANGE: '/openframeworks/statuschange',
   OPEN_FRAMEWORKS_CONNECTED: '/openframeworks/connected',
