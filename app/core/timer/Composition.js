@@ -4,7 +4,7 @@
 *
 **/
 
-export default class Composition extends Object {
+export default class Composition {
 
   /**
    * [Experiment contructor]
@@ -14,22 +14,23 @@ export default class Composition extends Object {
 
   constructor() {
 
-    super();
+    // super();
     this.timeline = [];
     this.name = "name";
     this.author = "author";
-    this.date = Date.now();
+    this.time = Date.now();
     this.duration = 0;
 
   }
 
   addNote( data ) {
+    console.log(data);
     this.timeline.push( {
       position: {
         x: data.x,
         y: data.y
       },
-      time:this.parseTime(Date.now() - this.date),
+      time:this.parseTime(Date.now() - this.time),
       cube: data.cubeId,
       sound: data.soundId
     } );
@@ -49,35 +50,35 @@ export default class Composition extends Object {
     return this._author;
   }
 
-  set authour(newAuthor){
+  set author(newAuthor){
       if(newAuthor){
           this._author = newAuthor;
       }
   }
 
-  get date() {
-        return this._date;
-    }
+  // get time() {
+  //       return this._time;
+  //   }
+  //
+  // set time(newDate){
+  //     if(newDate){
+  //         this.time = newDate;
+  //     }
+  // }
 
-  set date(newDate){
-      if(newDate){
-          this.date = newDate;
-      }
-  }
-
-  get duration() {
-        return this._duration;
-    }
-
-  set date(newDuration){
-      if(newDuration){
-          this.duration = newDuration;
-      }
-  }
+  // get duration() {
+  //       return this._duration;
+  //   }
+  //
+  // set duration(newDuration){
+  //     if(newDuration){
+  //         this.duration = newDuration;
+  //     }
+  // }
 
   parseTime(ms) {
      let min = (ms/1000/60) << 0,
-      sec = (ms/1000) % 60;
+      sec = ((ms/1000) % 60).toFixed(0);
 
     return {min:min, sec:sec};
   }

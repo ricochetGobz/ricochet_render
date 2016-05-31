@@ -28,11 +28,15 @@ export default class Timer extends PIXI.DisplayObjectContainer {
 
   start() {
 
-    this.compositions.push(new Composition());
+    console.log("timer start");
+    this.compo = new Composition();
+    this.compositions.push(this.compo);
 
   }
 
   onAdd( data ) {
+    console.log("add note");
+    console.log(this.compo);
     if(this.isOn) this.compositions[ this.compositions.length - 1 ].addNote( data );
   }
 
@@ -40,8 +44,8 @@ export default class Timer extends PIXI.DisplayObjectContainer {
     let compo = this.compositions[ this.compositions.length - 1 ];
     compo.name = "Le rire c'est le lol";
     compo.author = "Jack";
-    compo.duration = this.parseTime(Date.now() - compo.date);
-    compo.date = this.parseTime(Date.now());
+    compo.duration = this.parseTime(Date.now() - compo.time);
+    compo.time = Date.now();
     console.log(this);
     console.log(this.compositions);
     console.log(compo);
