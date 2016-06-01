@@ -41,7 +41,7 @@ export default class Composition {
       return this._title;
   }
 
-  set name(newTitle){
+  set title(newTitle){
       if(newTitle){
           this._title = newTitle;
       }
