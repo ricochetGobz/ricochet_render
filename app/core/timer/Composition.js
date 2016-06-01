@@ -16,10 +16,11 @@ export default class Composition {
 
     // super();
     this.timeline = [];
-    this.name = "name";
+    this.title = "name";
     this.author = "author";
-    this.time = Date.now();
+    this.createdAt = Date.now();
     this.duration = 0;
+    this.id = 0;
 
   }
 
@@ -30,19 +31,19 @@ export default class Composition {
         x: data.x,
         y: data.y
       },
-      time:this.parseTime(Date.now() - this.time),
+      createdAt:this.parseTime(Date.now() - this.createdAt),
       cube: data.cubeId,
       sound: data.soundId
     } );
   }
 
-  get name() {
-      return this._name;
+  get title() {
+      return this._title;
   }
 
-  set name(newName){
-      if(newName){
-          this._name = newName;
+  set name(newTitle){
+      if(newTitle){
+          this._title = newTitle;
       }
   }
 
@@ -55,26 +56,6 @@ export default class Composition {
           this._author = newAuthor;
       }
   }
-
-  // get time() {
-  //       return this._time;
-  //   }
-  //
-  // set time(newDate){
-  //     if(newDate){
-  //         this.time = newDate;
-  //     }
-  // }
-
-  // get duration() {
-  //       return this._duration;
-  //   }
-  //
-  // set duration(newDuration){
-  //     if(newDuration){
-  //         this.duration = newDuration;
-  //     }
-  // }
 
   parseTime(ms) {
      let min = (ms/1000/60) << 0,

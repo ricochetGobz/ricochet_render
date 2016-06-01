@@ -5,9 +5,12 @@
 *
 **/
 
+import { EventEmitter } from 'fbemitter';
+
 import adrs from './addresses';
 
 const util = {
+  emitter: new EventEmitter(),
   isJSON: (str) => {
     try {
       JSON.parse(str);

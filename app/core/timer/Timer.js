@@ -5,6 +5,8 @@
 **/
 
 import Composition from "./Composition";
+import utils from './../utils';
+import adrs from './../addresses';
 
 export default class Timer extends PIXI.DisplayObjectContainer {
 
@@ -42,19 +44,23 @@ export default class Timer extends PIXI.DisplayObjectContainer {
 
   stop() {
     let compo = this.compositions[ this.compositions.length - 1 ];
-    compo.name = "Le rire c'est le lol";
+    compo.title = "Le rire c'est le lol";
     compo.author = "Jack";
     compo.duration = this.parseTime(Date.now() - compo.time);
-    compo.time = Date.now();
+    compo.createdAt = Date.now();
+    compo.id = this.compositions.length - 1;
+    // if (compo.timeline.length < 1) this.compositions.slice(this.compositions.length - 1, 1);
     console.log(this);
     console.log(this.compositions);
     console.log(compo);
     console.log(compo.duration.min + ":" + compo.duration.sec);
+
+    utils.emitter.emit(adrs.SEND_NEW_COMPOSITION, JSON.stringify(compo));
   }
 
   parseTime(ms) {
-     let min = (ms/1000/60) << 0,
-      sec = ((ms/1000) % 60).toFixed(0);
+    let min = (ms/1000/60) << 0,
+    sec = ((ms/1000) % 60).toFixed(0);
 
     return {min:min, sec:sec};
   }

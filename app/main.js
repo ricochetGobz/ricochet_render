@@ -7,7 +7,7 @@
 
 import WSController from './core/WSController';
 import App from './core/App';
-
+import utils from './core/utils';
 import adrs from './core/addresses';
 
 const WSCtrl = new WSController();
@@ -55,14 +55,10 @@ function checkInstallStatus() {
  */
 WSCtrl.on(adrs.SERVER_CONNECTED, () => {
   console.log('WebSocket Client Connected');
+});
 
-  WSCtrl.send(adrs.GALLERY_NEW_COMPOSITION, {
-    id: '1',
-    title: 'compo to render',
-    author: 'author',
-    createdAt: new Date('2016-05-29 15:00:54'),
-    timeline: [],
-  });
+utils.emitter.addListener(adrs.SEND_NEW_COMPOSITION, (compo) => {
+  WSCtrl.send(adrs.GALLERY_NEW_COMPOSITION, compo);
 });
 
 // WSCtrl.on(adrs.SERVER_ERROR, (err) => {
