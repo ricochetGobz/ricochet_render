@@ -25,6 +25,7 @@
   "author": "Jérémie Boulay <jeremi.boulay@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "interact.js": "^1.2.6",
     "websocket": "^1.0.22"
   },
   "devDependencies": {
