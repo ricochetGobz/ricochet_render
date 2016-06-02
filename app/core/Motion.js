@@ -121,11 +121,8 @@ export default class Motion {
   */
  createEcho(x, y) {
    let echoes = ["lower", "middle-low", "high", "middle-high"],
-
     echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
-
-   this.scene.addChildAt(echo, 1);
-
+    this.scene.addChildAt(echo, 1);
  }
 
  /**
