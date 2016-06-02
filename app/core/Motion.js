@@ -123,7 +123,11 @@ export default class Motion {
   * @return void
   */
  createEcho(x, y) {
-   this.scene.addChildAt(this.factory.createEcho("lower", x, y), 1);
+   let echoes = ["lower", "high", "middle-high"],
+    mousePosition = this.scene.renderer.plugins.interaction.mouse.global,
+    echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], mousePosition.x, mousePosition.y);
+
+   this.scene.addChildAt(echo, 1);
 
  }
 
