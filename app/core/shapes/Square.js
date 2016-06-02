@@ -21,7 +21,7 @@ export default class Square extends Shape {
   draw() {
     super.draw();
 
-    this.mask.drawRect( this.data.offset.x + this.data.position.x, this.data.offset.y + this.data.position.y, this.data.size, this.data.size );
+    this.mask.drawRect( this.data.offset.x + this.data.position.x - this.data.size, this.data.offset.y + this.data.position.y - this.data.size, this.data.size * 2, this.data.size * 2);
     this.mask.endFill();
     this.addChild(this.mask);
 

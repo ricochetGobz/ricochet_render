@@ -9,6 +9,7 @@ import Pill from '../shapes/Pill';
 import Square from '../shapes/Square';
 import Triangle from '../shapes/Triangle';
 import RectPill from '../shapes/RectPill';
+import HalfCircle from '../shapes/HalfCircle';
 
 export default class ShapeFactory {
 
@@ -38,6 +39,9 @@ export default class ShapeFactory {
       break;
       case "triangle":
         shape = new Triangle(data, x, y);
+      break;
+      case "half-circle":
+        shape = new HalfCircle(data, x, y);
       break;
     }
     return shape;

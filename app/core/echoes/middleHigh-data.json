@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "triangle",
-      "size": 80,
+      "size": 60,
       "offset": {
           "x": 0,
           "y": 0
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "name": "triangle",
-      "size": 60,
+      "size": 20,
       "offset": {
           "x": 0,
           "y": 0
@@ -99,7 +99,7 @@
     {
       "id": 7,
       "name": "triangle",
-      "size": 60,
+      "size": 50,
       "offset": {
           "x": 0,
           "y": 0
@@ -115,7 +115,7 @@
     {
       "id": 8,
       "name": "triangle",
-      "size": 30,
+      "size": 15,
       "offset": {
           "x": 0,
           "y": 0

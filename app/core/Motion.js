@@ -56,11 +56,8 @@ export default class Motion {
  }
 
  onButtonUp(mouseData) {
-   let echoes = ["lower", "high", "middle-high"],
-    mousePosition = this.scene.renderer.plugins.interaction.mouse.global,
-    echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], mousePosition.x, mousePosition.y);
-
-   this.scene.addChildAt(echo, 1);
+   let mousePosition = this.scene.renderer.plugins.interaction.mouse.global;
+   this.createEcho(mousePosition.x, mousePosition.y);
  }
 
  toggleTimer() {
@@ -123,7 +120,11 @@ export default class Motion {
   * @return void
   */
  createEcho(x, y) {
-   this.scene.addChildAt(this.factory.createEcho("lower", x, y), 1);
+   let echoes = ["lower", "middle-low", "high", "middle-high"],
+
+    echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
+
+   this.scene.addChildAt(echo, 1);
 
  }
 
