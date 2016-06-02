@@ -6,6 +6,9 @@
 import Shape from '../shapes/Shape';
 import Circle from '../shapes/Circle';
 import Pill from '../shapes/Pill';
+import Square from '../shapes/Square';
+import Triangle from '../shapes/Triangle';
+import RectPill from '../shapes/RectPill';
 
 export default class ShapeFactory {
 
@@ -26,6 +29,15 @@ export default class ShapeFactory {
       break;
       case "pill":
         shape = new Pill(data, x, y);
+      break;
+      case "rectpill":
+        shape = new RectPill(data, x, y);
+      break;
+      case "square":
+        shape = new Square(data, x, y);
+      break;
+      case "triangle":
+        shape = new Triangle(data, x, y);
       break;
     }
     return shape;

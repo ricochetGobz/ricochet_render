@@ -1,0 +1,180 @@
+{
+  "shapes": [
+    {
+      "id": 1,
+      "name": "triangle",
+      "size": 80,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FFD296", "#FFB089"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 2,
+      "name": "triangle",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FFD296", "#FFB089"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 3,
+      "name": "triangle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FF6063"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 4,
+      "name": "triangle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FF6063"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 5,
+      "name": "triangle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FF6063"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 6,
+      "name": "triangle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FF6063"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 7,
+      "name": "triangle",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FFD296", "#FFB089"],
+      "stroke": true,
+      "randomness":0
+    },
+    {
+      "id": 8,
+      "name": "triangle",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FFD296", "#FFB089"],
+      "stroke": true,
+      "randomness":0
+    },
+    {
+      "id": 9,
+      "name": "rectpill",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#F26164"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 10,
+      "name": "rectpill",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#F26164"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 11,
+      "name": "rectpill",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#F26164"],
+      "stroke": false,
+      "randomness":0
+    }
+  ]
+}

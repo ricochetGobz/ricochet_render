@@ -1,0 +1,180 @@
+{
+  "shapes": [
+    {
+      "id": 1,
+      "name": "square",
+      "size": 80,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FA837F", "#FA6D77"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 2,
+      "name": "square",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FA837F", "#FA6D77"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 3,
+      "name": "square",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FC587F"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 4,
+      "name": "square",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FC587F"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 5,
+      "name": "square",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FC587F"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 6,
+      "name": "square",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FC587F"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 7,
+      "name": "square",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FFA687", "#FC9089"],
+      "stroke": true,
+      "randomness":0
+    },
+    {
+      "id": 8,
+      "name": "square",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#FFA687", "#FC9089"],
+      "stroke": true,
+      "randomness":0
+    },
+    {
+      "id": 9,
+      "name": "rectpill",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#F42A61"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 10,
+      "name": "rectpill",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#F42A61"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 11,
+      "name": "rectpill",
+      "size": 30,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#F42A61"],
+      "stroke": false,
+      "randomness":0
+    }
+  ]
+}

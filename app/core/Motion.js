@@ -56,9 +56,9 @@ export default class Motion {
  }
 
  onButtonUp(mouseData) {
-   let echoes = ["lower"],
+   let echoes = ["lower", "high", "middle-high"],
     mousePosition = this.scene.renderer.plugins.interaction.mouse.global,
-    echo = this.factory.createEcho(echoes[Math.floor(Math.random())], mousePosition.x, mousePosition.y);
+    echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], mousePosition.x, mousePosition.y);
 
    this.scene.addChildAt(echo, 1);
  }
