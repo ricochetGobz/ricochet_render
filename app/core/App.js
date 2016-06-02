@@ -62,9 +62,10 @@ class App {
    * @return void
    */
   onResize( evt ) {
+    let resolution = window.innerHeight / 3;
 
-    let w = ( this.motion.w * h ) / this.motion.h;
-    let h = window.innerHeight;
+    let w = resolution * 4;
+    let h = resolution * 3;
     this.motion.resize( w, h );
 
   }

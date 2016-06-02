@@ -4,7 +4,7 @@
 *
 **/
 import Echo from '../echoes/Echo';
-import Lower from '../echoes/Lower';
+import Lower from '../echoes/lower-data'
 
 export default class EchoFactory {
 
@@ -21,7 +21,7 @@ export default class EchoFactory {
     let echo;
     switch (name) {
       case "lower":
-        echo = new Lower(this, x, y);
+        echo = new Echo(this, x, y, Lower);
       break;
       case "middleLow":
         // echo = new MiddleLow(x, y);

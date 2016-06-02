@@ -12,7 +12,7 @@ import Button from './timer/Button';
 import Timer from './timer/Timer';
 
 
-const resolution = 200;
+const resolution = window.innerHeight / 3;
 
 export default class Motion {
   /**
@@ -23,15 +23,20 @@ export default class Motion {
 
    this.container = document.getElementById(_container);
 
-  //  let w = 4 * resolution;
-  //  let h = 3 * resolution;
-  this.w = window.innerWidth;
-  this.h = window.innerHeight;
+   this.w = 4 * resolution;
+   this.h = 3 * resolution;
+  // this.w = window.innerWidth;
+  // this.h = window.innerHeight;
 
    this.scene = new Scene( this.w, this.h );
 
   //  this.shape = new Shape();
   //  this.scene.addChild( this.shape );
+
+  this.table = new PIXI.Graphics();
+  this.table.beginFill(0xffffff);
+  this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
+  this.scene.addChild(this.table);
 
    this.factory = new EchoFactory();
    this.tuto = new Tuto();
@@ -44,6 +49,18 @@ export default class Motion {
    this.scene.addChild(this.button);
    this.button.activate(this);
 
+   this.table.interactive = true;
+   this.table.on('mouseup', () => this.onButtonUp())
+
+
+ }
+
+ onButtonUp(mouseData) {
+   let echoes = ["lower"],
+    mousePosition = this.scene.renderer.plugins.interaction.mouse.global,
+    echo = this.factory.createEcho(echoes[Math.floor(Math.random())], mousePosition.x, mousePosition.y);
+
+   this.scene.addChildAt(echo, 1);
  }
 
  toggleTimer() {
@@ -106,7 +123,7 @@ export default class Motion {
   * @return void
   */
  createEcho(x, y) {
-   this.scene.addChildAt(this.factory.createEcho("lower", x, y), 0);
+   this.scene.addChildAt(this.factory.createEcho("lower", x, y), 1);
 
  }
 
