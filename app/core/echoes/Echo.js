@@ -5,7 +5,7 @@
 **/
 
 import Factory from '../shapes/ShapeFactory';
-import SpritesheetFactory from '../shapes/SpritesheetFactory';
+
 
 const colors = [0xa8539b, 0x2ac0d1];
 const gradients = [{start:0xdcd3f0, end:0x79d8ed},
@@ -29,6 +29,7 @@ export default class Echo extends PIXI.Container{
   }
 
   init( x, y, data ) {
+    console.log(x, y)
     let i = 0,
         shapes = data.shapes,
         delta = (2 * Math.PI) / shapes.length;
@@ -40,7 +41,7 @@ export default class Echo extends PIXI.Container{
       // let factory = new Factory();
       let shape;
       if(shapes[i].sprite) {
-        shape = new SpritesheetFactory().createAnim(shapes[i], posx, posy);
+        shape = this.owner.spriteFactory.createAnim(shapes[i], posx, posy);
         this.sprites.push(shape);
       } else {
         shape = new Factory().createShape(this, shapes[i], posx, posy);

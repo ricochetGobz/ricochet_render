@@ -11,6 +11,7 @@ import Low from '../echoes/sprites/low-data';
 import High from '../echoes/sprites/high-data';
 import MiddleHigh from '../echoes/sprites/middleHigh-data';
 import Higher from '../echoes/sprites/higher-data';
+import SpritesheetFactory from '../shapes/SpritesheetFactory';
 
 
 export default class EchoFactory {
@@ -22,6 +23,7 @@ export default class EchoFactory {
    */
   constructor(owner) {
     this.owner = owner;
+    this.spriteFactory = new SpritesheetFactory();
   }
 
   createEcho(name, x, y) {
