@@ -1,0 +1,168 @@
+{
+  "shapes": [
+    {
+      "id": 1,
+      "name": "half-circle",
+      "size": 80,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#C78EE1", "#B797DC"],
+      "stroke": false,
+      "anim": true,
+      "randomness":0
+    },
+    {
+      "id": 2,
+      "name": "half-circle",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#C78EE1", "#B797DC"],
+      "stroke": false,
+      "anim": true,
+      "randomness":0
+    },
+    {
+      "id": 3,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#DA73B0"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 4,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#DA73B0"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 5,
+      "name": "circle",
+      "size": 10,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#DA73B0"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 7,
+      "name": "pill",
+      "size": 120,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#E0C2EE"],
+      "stroke": true,
+      "anim": true,
+      "randomness":0
+    },
+    {
+      "id": 8,
+      "name": "pill",
+      "size": 60,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#E0C2EE"],
+      "stroke": true,
+      "anim": true,
+      "randomness":0
+    },
+    {
+      "id": 9,
+      "name": "pill",
+      "size": 50,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#D767BE"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 10,
+      "name": "pill",
+      "size": 50,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#D767BE"],
+      "stroke": false,
+      "randomness":0
+    },
+    {
+      "id": 11,
+      "name": "pill",
+      "size": 50,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#D767BE"],
+      "stroke": false,
+      "randomness":0
+    }
+  ]
+}

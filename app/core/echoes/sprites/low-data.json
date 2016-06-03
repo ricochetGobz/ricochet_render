@@ -1,0 +1,21 @@
+{
+  "shapes": [
+    {
+      "sprite": true,
+      "id": 1,
+      "name": "shape",
+      "size": 80,
+      "offset": {
+          "x": 0,
+          "y": 0
+        },
+      "position": {
+        "x": 0,
+        "y": 0
+        },
+      "colors":["#7FBEE8", "#94CFD3"],
+      "stroke": false,
+      "randomness":0
+    }
+  ]
+}
