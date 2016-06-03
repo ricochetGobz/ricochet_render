@@ -16,9 +16,11 @@ export default class Tuto extends PIXI.DisplayObjectContainer {
    * @return void
    */
 
-  constructor() {
+  constructor(x, y) {
 
     super();
+    this.x = x;
+    this.y = y;
 
   }
 
@@ -36,8 +38,8 @@ export default class Tuto extends PIXI.DisplayObjectContainer {
 
   displayText(id) {
     if ( !this.text ) {
-      this.text = new Text("PLACE UN CUBE", DataTuto.tuto[0].size, {font:"normal 10px Circular", fill:0x5C74C0});
-      this.stroke = new Stroke( window.innerWidth / 2 - 250 / 8, window.innerHeight / 3);
+      this.text = new Text(0, 0, "PLACE UN CUBE", DataTuto.tuto[0].size, {font:"normal 10px Circular", fill:0x5C74C0});
+      this.stroke = new Stroke(0, 50);
       this.addChild(this.text);
       this.addChild(this.stroke);
     }

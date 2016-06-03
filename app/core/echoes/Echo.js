@@ -5,6 +5,7 @@
 **/
 
 import Factory from '../shapes/ShapeFactory';
+import SpritesheetFactory from '../shapes/SpritesheetFactory';
 
 const colors = [0xa8539b, 0x2ac0d1];
 const gradients = [{start:0xdcd3f0, end:0x79d8ed},
@@ -23,6 +24,7 @@ export default class Echo extends PIXI.Container{
     super();
     this.owner = owner;
     this.shapes = [];
+    this.sprites = [];
     this.init(x, y, data);
   }
 
@@ -36,9 +38,15 @@ export default class Echo extends PIXI.Container{
       let posx = x + cubeSize /2 * Math.cos(i*delta);
       let posy = y + cubeSize /2 * Math.sin(i*delta);
       // let factory = new Factory();
-      let shape = new Factory().createShape(this, shapes[i], posx, posy);
+      let shape;
+      if(shapes[i].sprite) {
+        shape = new SpritesheetFactory().createAnim(shapes[i], posx, posy);
+        this.sprites.push(shape);
+      } else {
+        shape = new Factory().createShape(this, shapes[i], posx, posy);
+        this.shapes.push(shape);
+      }
 
-      this.shapes.push(shape);
       this.addChild(shape);
       // this.addChild(shape.mask);
     }
@@ -63,8 +71,13 @@ export default class Echo extends PIXI.Container{
   }
 
   hide() {
+    let length = this.shapes.length;
+    let length2 = this.sprites.length;
     for (var i = 0; i < length; i++) {
       this.removeChild(this.shapes[i]);
+    }
+    for (var i = 0; i < length2; i++) {
+      this.removeChild(this.sprites[i]);
     }
     this.owner.owner.scene.removeChild(this);
   }

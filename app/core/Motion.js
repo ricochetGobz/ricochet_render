@@ -44,13 +44,13 @@ export default class Motion {
   this.scene.addChild(this.table);
 
    this.factory = new EchoFactory(this);
-   this.tuto = new Tuto();
+   this.tuto = new Tuto(this.scene.width / 2, this.scene.height / 2);
    this.scene.addChild(this.tuto);
 
    this.timer = new Timer();
    this.scene.addChild(this.timer);
 
-   this.button = new Button();
+   this.button = new Button(this.scene.width / 2, 50);
    this.scene.addChild(this.button);
    this.button.activate(this);
 
@@ -169,7 +169,7 @@ export default class Motion {
   * @return void
   */
  createEcho(x, y) {
-   let echoes = ["lower", "middle-high", "middle-low", "high"],
+   let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"],
     echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
     this.scene.addChildAt(echo, 1);
     echo.show();

@@ -19,7 +19,7 @@ export default class Text extends PIXI.Graphics {
    * @return void
    */
 
-  constructor( text, size, options ) {
+  constructor( x, y, text, size, options ) {
     if (!options) {
       let options = { font:"normal 40px Circular", fill:COLOR, align:"center"  };
     }
@@ -42,7 +42,8 @@ export default class Text extends PIXI.Graphics {
     this.rect.position.y = -PADDING.y - 5;
     this.addChild(this.rect);
 
-    this.position.x = this.position.y = window.innerWidth / 2 - this.text.width / 2 - PADDING.x / 2;
+    this.position.x = x - this.text.width / 2 - PADDING.x / 2;
+    this.position.y = y - this.text.height / 2 - PADDING.y / 2;
 
     this.initSetup();
     this.hidden = true;

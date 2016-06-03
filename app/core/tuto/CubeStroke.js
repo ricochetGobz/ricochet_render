@@ -18,7 +18,9 @@ export default class CubeStroke extends PIXI.Graphics {
 
     super();
 
-    this.draw( x, y );
+    this.draw( 0, 0 );
+    this.position.x = x - size / 2;
+    this.position.y = y;
     this.alpha = 0;
     this.show();
 
