@@ -110,6 +110,7 @@
         },
       "colors":["#9272a5", "#5A75C9"],
       "stroke": true,
+      "anim":true,
       "randomness":0
     },
     {
@@ -126,6 +127,7 @@
         },
       "colors":["#9272a5", "#5A75C9"],
       "stroke": true,
+      "anim":true,
       "randomness":0
     },
     {

@@ -16,8 +16,8 @@ export default class EchoFactory {
    * - Extends PIXI.Graphics
    * @return void
    */
-  constructor() {
-
+  constructor(owner) {
+    this.owner = owner;
   }
 
   createEcho(name, x, y) {

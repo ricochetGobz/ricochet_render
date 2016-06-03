@@ -22,7 +22,7 @@ export default class ShapeFactory {
 
   }
 
-  createShape(data, x, y) {
+  createShape(owner,data, x, y) {
     let shape;
     switch (data.name) {
       case "circle":
@@ -44,6 +44,7 @@ export default class ShapeFactory {
         shape = new HalfCircle(data, x, y);
       break;
     }
+    shape.owner = owner;
     return shape;
   }
 }

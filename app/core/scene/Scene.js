@@ -38,6 +38,10 @@ export default class Scene {
         edges: { left: true, right: true, bottom: true, top: true },
       })
       .on('resizemove', this.onResize.bind(this));
+
+      this.test2 = new PIXI.Graphics();
+
+
   }
 
   /**

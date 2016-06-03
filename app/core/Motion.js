@@ -14,6 +14,9 @@ import Timer from './timer/Timer';
 
 const resolution = window.innerHeight / 3;
 
+let start = 0;
+let end = Math.PI * 0.01;
+
 export default class Motion {
   /**
   * [Experiment contructor]
@@ -33,12 +36,14 @@ export default class Motion {
   //  this.shape = new Shape();
   //  this.scene.addChild( this.shape );
 
+  this.echoes = [];
+
   this.table = new PIXI.Graphics();
   this.table.beginFill(0xffffff);
   this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
   this.scene.addChild(this.table);
 
-   this.factory = new EchoFactory();
+   this.factory = new EchoFactory(this);
    this.tuto = new Tuto();
    this.scene.addChild(this.tuto);
 
@@ -50,7 +55,21 @@ export default class Motion {
    this.button.activate(this);
 
    this.table.interactive = true;
-   this.table.on('mouseup', () => this.onButtonUp())
+   this.table.on('mouseup', () => this.onButtonUp());
+
+  //  this.test2 = new PIXI.Graphics();
+  //  this.test2.beginFill(0x0000ff);
+  //  this.test2.arc(this.w / 2, this.h / 2, 80, 0, 0);
+  //  this.test2.endFill();
+  //  this.scene.addChild(this.test2);
+   //
+  //  this.test3 = new PIXI.Graphics();
+  //  this.test3.beginFill(0x00ffff);
+  //  this.test3.drawCircle(0, 0, 8);
+  //  this.test3.position.x = this.w / 2 + 80 - 4;
+  //  this.test3.position.y = this.h / 2;
+  //  this.test3.endFill();
+  //  this.scene.addChild(this.test3);
 
 
  }
@@ -91,6 +110,10 @@ export default class Motion {
   * @return void
   */
  update( DELTA_TIME ) {
+
+   for (var i = 0; i < this.echoes.length; i++) {
+     this.echoes[i].update();
+   }
    //
   //  this.shape.update();
    //
@@ -110,6 +133,32 @@ export default class Motion {
   */
  render() {
 
+  //  end += .01;
+   //
+  //  this.test2.beginFill(0x0000ff);
+   //
+   //
+  //  this.test2.arc(this.w / 2, this.h / 2, 80, start, end);
+  //  this.test2.drawPolygon([
+  //    new PIXI.Point(this.w / 2, this.h / 2),
+  //    new PIXI.Point(this.w / 2 + 80 * Math.cos(start), this.h / 2 + 80 * Math.sin(start)),
+  //    new PIXI.Point(this.w / 2 + 80 * Math.cos(end), this.h / 2 + 80 * Math.sin(end))
+  //  ]);
+  //  this.test2.endFill();
+   //
+  //  this.test3.position.x = this.w / 2 + 80 * Math.cos(start) - 4;
+  //  this.test3.position.y = this.h / 2 + 80 * Math.sin(start) - 4;
+   //
+  //  start += .01;
+   //
+   //
+  //  if(end > Math.PI * 2) end = 0;
+  //  if(start > Math.PI * 2)  {
+  //    start = 0;
+  //    this.test2.clear();
+  //  }
+
+
    this.scene.render();
 
  }
@@ -120,9 +169,11 @@ export default class Motion {
   * @return void
   */
  createEcho(x, y) {
-   let echoes = ["lower", "middle-low", "high", "middle-high"],
+   let echoes = ["lower", "middle-high", "middle-low", "high"],
     echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
     this.scene.addChildAt(echo, 1);
+    echo.show();
+    this.echoes.push(echo);
  }
 
  /**

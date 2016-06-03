@@ -110,6 +110,7 @@
         },
       "colors":["#FFA687", "#FC9089"],
       "stroke": true,
+      "anim": true,
       "randomness":0
     },
     {
@@ -126,6 +127,7 @@
         },
       "colors":["#FFA687", "#FC9089"],
       "stroke": true,
+      "anim": true,
       "randomness":0
     },
     {

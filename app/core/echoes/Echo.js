@@ -36,11 +36,36 @@ export default class Echo extends PIXI.Container{
       let posx = x + cubeSize /2 * Math.cos(i*delta);
       let posy = y + cubeSize /2 * Math.sin(i*delta);
       // let factory = new Factory();
-      let shape = new Factory().createShape(shapes[i], posx, posy);
+      let shape = new Factory().createShape(this, shapes[i], posx, posy);
 
       this.shapes.push(shape);
       this.addChild(shape);
       // this.addChild(shape.mask);
     }
+  }
+
+  update() {
+    let length = this.shapes.length;
+    for (var i = 0; i < length; i++) {
+      this.shapes[i].update();
+    }
+  }
+
+  show() {
+    let length = this.shapes.length;
+    for (var i = 0; i < length; i++) {
+      this.shapes[i].show();
+    }
+    let value = {number:1};
+    TweenMax.to(value, 6, {number:5, onComplete:() => {
+      this.hide();
+    }})
+  }
+
+  hide() {
+    for (var i = 0; i < length; i++) {
+      this.removeChild(this.shapes[i]);
+    }
+    this.owner.owner.scene.removeChild(this);
   }
 }
