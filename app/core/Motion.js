@@ -11,7 +11,6 @@ import Tuto from './tuto/Tuto';
 import Button from './timer/Button';
 import Timer from './timer/Timer';
 
-
 const resolution = window.innerHeight / 3;
 
 let start = 0;
@@ -47,7 +46,7 @@ export default class Motion {
    this.tuto = new Tuto(this.scene.width / 2, this.scene.height / 2);
    this.scene.addChild(this.tuto);
 
-   this.timer = new Timer();
+   this.timer = new Timer(this, this.scene.width / 2, this.scene.height / 2, this.scene.height / 2 - 50);
    this.scene.addChild(this.timer);
 
    this.button = new Button(this.scene.width / 2, 50);
@@ -81,8 +80,13 @@ export default class Motion {
 
  toggleTimer() {
    this.timer.isOn = !this.timer.isOn;
-   if ( this.timer.isOn ) this.timer.start();
-   else this.timer.stop();
+   if ( this.timer.isOn ) {
+     this.timer.startCountdown();
+     this.button.animate();
+   } else {
+     this.button.stop();
+     this.timer.stopCountdown();
+   }
  }
 
  displayTuto(nbr) {
@@ -114,6 +118,7 @@ export default class Motion {
    for (var i = 0; i < this.echoes.length; i++) {
      this.echoes[i].update();
    }
+   this.timer.update();
    //
   //  this.shape.update();
    //

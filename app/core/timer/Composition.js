@@ -37,25 +37,25 @@ export default class Composition {
     } );
   }
 
-  get title() {
-      return this._title;
-  }
-
-  set title(newTitle){
-      if(newTitle){
-          this._title = newTitle;
-      }
-  }
-
-  get author() {
-    return this._author;
-  }
-
-  set author(newAuthor){
-      if(newAuthor){
-          this._author = newAuthor;
-      }
-  }
+  // get title() {
+  //     return this._title;
+  // }
+  //
+  // set title(newTitle){
+  //     if(newTitle){
+  //         this._title = newTitle;
+  //     }
+  // }
+  //
+  // get author() {
+  //   return this._author;
+  // }
+  //
+  // set author(newAuthor){
+  //     if(newAuthor){
+  //         this._author = newAuthor;
+  //     }
+  // }
 
   parseTime(ms) {
      let min = (ms/1000/60) << 0,
