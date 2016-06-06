@@ -53,6 +53,10 @@ export default class Button extends PIXI.DisplayObjectContainer {
 
   }
 
+  hide() {
+    TweenMax.to(this, .5, {alpha:0});
+  }
+
   onButtonUp(owner) {
 
     owner.toggleTimer();

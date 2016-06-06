@@ -5,8 +5,8 @@
 **/
 
 const nbrOfNotes = 6;
-const nbrOfSprites = 1;
-// const nbrOfSprites = 78;
+// const nbrOfSprites = 1;
+const nbrOfSprites = 78;
 let animations = [];
 
 export default class SpritesheetFactory {

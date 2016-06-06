@@ -19,7 +19,7 @@ export default class Composition {
     this.title = "name";
     this.author = "author";
     this.createdAt = Date.now();
-    this.duration = 0;
+    this.duration = {min:0, sec:0};
     this.id = 0;
 
   }
@@ -58,6 +58,7 @@ export default class Composition {
   // }
 
   parseTime(ms) {
+    
      let min = (ms/1000/60) << 0,
       sec = ((ms/1000) % 60).toFixed(0);
 

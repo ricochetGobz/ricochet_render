@@ -10,6 +10,7 @@ import EchoFactory from './echoes/EchoFactory';
 import Tuto from './tuto/Tuto';
 import Button from './timer/Button';
 import Timer from './timer/Timer';
+import Intro from './Intro';
 
 const resolution = window.innerHeight / 3;
 
@@ -27,50 +28,60 @@ export default class Motion {
 
    this.w = 4 * resolution;
    this.h = 3 * resolution;
-  // this.w = window.innerWidth;
-  // this.h = window.innerHeight;
 
    this.scene = new Scene( this.w, this.h );
 
-  //  this.shape = new Shape();
-  //  this.scene.addChild( this.shape );
+   this.elements = [];
+   this.echoes = [];
 
-  this.echoes = [];
+   this.addElements();
+   this.canShow = false;
 
-  this.table = new PIXI.Graphics();
-  this.table.beginFill(0xffffff);
-  this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
-  this.scene.addChild(this.table);
+   this.hide();
 
-   this.factory = new EchoFactory(this);
-   this.tuto = new Tuto(this.scene.width / 2, this.scene.height / 2);
-   this.scene.addChild(this.tuto);
+ }
 
-   this.timer = new Timer(this, this.scene.width / 2, this.scene.height / 2, this.scene.height / 2 - 50);
-   this.scene.addChild(this.timer);
+ playIntro() {
+   this.intro.show();
+ }
 
-   this.button = new Button(this.scene.width / 2, 50);
-   this.scene.addChild(this.button);
-   this.button.activate(this);
+ addElements() {
+    this.table = new PIXI.Graphics();
+    this.table.beginFill(0xffffff);
+    this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
+    this.scene.addChild(this.table);
 
-   this.table.interactive = true;
-   this.table.on('mouseup', () => this.onButtonUp());
+    this.intro = new Intro(this.w / 2, this.h / 2);
+    this.scene.addChild(this.intro);
+    this.elements.push(this.intro);
 
-  //  this.test2 = new PIXI.Graphics();
-  //  this.test2.beginFill(0x0000ff);
-  //  this.test2.arc(this.w / 2, this.h / 2, 80, 0, 0);
-  //  this.test2.endFill();
-  //  this.scene.addChild(this.test2);
-   //
-  //  this.test3 = new PIXI.Graphics();
-  //  this.test3.beginFill(0x00ffff);
-  //  this.test3.drawCircle(0, 0, 8);
-  //  this.test3.position.x = this.w / 2 + 80 - 4;
-  //  this.test3.position.y = this.h / 2;
-  //  this.test3.endFill();
-  //  this.scene.addChild(this.test3);
+    this.factory = new EchoFactory(this);
+    this.tuto = new Tuto(this.scene.width / 2, this.scene.height / 2);
+    this.scene.addChild(this.tuto);
+    this.elements.push(this.tuto);
 
+    this.timer = new Timer(this, this.scene.width / 2, this.scene.height / 2, this.scene.height / 2 - 50);
+    this.scene.addChild(this.timer);
+    this.elements.push(this.timer);
 
+    this.button = new Button(this.scene.width / 2, 50);
+    this.scene.addChild(this.button);
+    this.elements.push(this.button);
+    this.button.activate(this);
+
+    this.table.interactive = true;
+    this.table.on('mouseup', () => this.onButtonUp());
+ }
+
+ show() {
+
+ }
+
+ hide() {
+   var length = this.elements.length;
+   for (var i = 0; i < length; i++) {
+     this.elements[i].hide();
+   }
  }
 
  onButtonUp(mouseData) {
@@ -91,7 +102,7 @@ export default class Motion {
 
  displayTuto(nbr) {
 
-   this.tuto.displayText( nbr );
+   if(this.canShow) this.tuto.displayText( nbr );
 
  }
 
@@ -174,11 +185,13 @@ export default class Motion {
   * @return void
   */
  createEcho(x, y) {
-   let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"],
-    echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
-    this.scene.addChildAt(echo, 1);
-    echo.show();
-    this.echoes.push(echo);
+   if(this.canShow) {
+     let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"],
+      echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
+      this.scene.addChildAt(echo, 1);
+      echo.show();
+      this.echoes.push(echo);
+   }
  }
 
  /**

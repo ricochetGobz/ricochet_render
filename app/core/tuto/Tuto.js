@@ -36,6 +36,18 @@ export default class Tuto extends PIXI.DisplayObjectContainer {
     }
   }
 
+  hide() {
+    for (var j = 0; j < this.children.length; j++) {
+      this.children[j].hide();
+    }
+  }
+
+  show() {
+    for (var j = 0; j < this.children.length; j++) {
+      this.children[j].show();
+    }
+  }
+
   displayText(id) {
     if ( !this.text ) {
       this.text = new Text(0, 0, "PLACE UN CUBE", DataTuto.tuto[0].size, {font:"normal 10px Circular", fill:0x5C74C0});

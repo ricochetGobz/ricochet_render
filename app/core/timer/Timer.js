@@ -149,6 +149,7 @@ export default class Timer extends PIXI.DisplayObjectContainer {
   }
 
   parseTime(ms) {
+    console.log(ms)
     let min = (ms/1000/60) << 0,
     sec = ((ms/1000) % 60).toFixed(0);
 
