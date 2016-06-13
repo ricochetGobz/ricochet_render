@@ -66,8 +66,8 @@ class App {
 
     let w = resolution * 4;
     let h = resolution * 3;
-    this.motion.resize( w, h );
 
+    this.motion.resize( w, h );     // WARN NEVER USED
   }
 
 }

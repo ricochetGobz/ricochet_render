@@ -18,7 +18,7 @@ export default class Scene {
     this.width = _width;
     this.height = _height;
 
-    this.ratio = this.getRatio();
+    this.ratio = this._getRatio();
 
     this.children = [];
 
@@ -132,7 +132,7 @@ export default class Scene {
 
     this.width = Math.round(event.rect.width);
     this.height = Math.round(event.rect.height);
-    this.ratio = this.getRatio();
+    // this.ratio = this._getRatio(); // DON T RECALCULATE THE RATIO
 
     target.textContent = `${Math.round(event.rect.width)}×${Math.round(event.rect.height)}`;
   }
@@ -164,9 +164,7 @@ export default class Scene {
   //   this.renderer.view.style.height = this.height + 'px';
   // }
 
-  getRatio() {
-    console.log(this.width, this.height);
-    console.log(`ratio : ${this.width / 640}`);
+  _getRatio() {
     return (this.width / 640);
   }
 

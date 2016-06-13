@@ -29,8 +29,7 @@ export default class Echo extends PIXI.Container{
   }
 
   init( x, y, data ) {
-    console.log(x, y);
-    console.log()
+    console.log(`Echo.init() : ${x}, ${y}`);
     this.position.x = x;
     this.position.y = y;
 

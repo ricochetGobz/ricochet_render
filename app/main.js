@@ -82,6 +82,7 @@ WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {
 
 WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
   const cube = JSON.parse(data);
+  console.log(_App.motion.scene.ratio);
   const x = cube.x * _App.motion.scene.ratio;
   const y = cube.y * _App.motion.scene.ratio;
   _App.motion.createEcho(x, y);
