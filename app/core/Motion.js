@@ -11,6 +11,7 @@ import Tuto from './tuto/Tuto';
 import Button from './timer/Button';
 import Timer from './timer/Timer';
 import Intro from './Intro';
+import Logo from './Logo';
 
 const resolution = window.innerHeight / 3;
 
@@ -29,6 +30,8 @@ export default class Motion {
    this.w = 4 * resolution;
    this.h = 3 * resolution;
 
+   this.currentNbr = 0;
+
    this.scene = new Scene( this.w, this.h );
 
    this.elements = [];
@@ -38,6 +41,7 @@ export default class Motion {
    this.canShow = false;
 
    this.hide();
+  //  this.show();
 
  }
 
@@ -51,9 +55,17 @@ export default class Motion {
     this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
     this.scene.addChild(this.table);
 
-    this.intro = new Intro(this.w / 2, this.h / 2);
-    this.scene.addChild(this.intro);
-    this.elements.push(this.intro);
+    // this.intro = new Intro(this.w / 2, this.h / 2);
+    // this.scene.addChild(this.intro);
+    // this.elements.push(this.intro);
+
+    this.logo = new Logo(this, this.w / 2, this.h / 2);
+    var self = this;
+    setTimeout(function() {
+      self.scene.addChild(self.logo.createAnim(self.w / 2, self.h / 2));
+      self.logo.showStart();
+    }, 3000);
+    // this.elements.push(this.logo);
 
     this.factory = new EchoFactory(this);
     this.tuto = new Tuto(this.scene.width / 2, this.scene.height / 2);
@@ -71,10 +83,17 @@ export default class Motion {
 
     this.table.interactive = true;
     this.table.on('mouseup', () => this.onButtonUp());
+
+    // this.show();
  }
 
  show() {
-
+   this.canShow = true;
+   var length = this.elements.length;
+   for (var i = 0; i < length; i++) {
+    //  this.elements[i].show();
+   }
+   this.tuto.show();
  }
 
  hide() {
@@ -101,9 +120,14 @@ export default class Motion {
  }
 
  displayTuto(nbr) {
-
+   if(this.currentNbr < 1 && nbr > 0) {
+     this.tuto.gotoTop();
+     this.tuto.stroke.hide();
+     this.timer.show();
+     this.button.show();
+   }
    if(this.canShow) this.tuto.displayText( nbr );
-
+   this.currentFrame = nbr;
  }
 
  /**
@@ -125,6 +149,7 @@ export default class Motion {
   * @return void
   */
  update( DELTA_TIME ) {
+   if(this.logo) this.logo.update();
 
    for (var i = 0; i < this.echoes.length; i++) {
      this.echoes[i].update();

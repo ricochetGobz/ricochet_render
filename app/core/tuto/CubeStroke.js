@@ -27,18 +27,19 @@ export default class CubeStroke extends PIXI.Graphics {
   }
 
   draw( x, y ) {
-
-    this.lineStyle(15/4, 0x5C74C0);
-    this.drawRect( x, y, size, size );
+    let sprite = new PIXI.Sprite.fromImage('imgs/carre_cube.png');
+    this.addChild(sprite);
+    sprite.scale.x = sprite.scale.y = 0.5;
+    this.position.x = sprite.width / 4;
 
   }
 
   show() {
-    TweenMax.to(this, 1, {alpha: 1});
+    TweenMax.to(this, 1, {delay: .5, alpha: 1});
   }
 
   hide() {
-    TweenMax.to(this, 1, {alpha: 0});
+    TweenMax.to(this, 1, {delay: .2, alpha: 0});
   }
 
 }

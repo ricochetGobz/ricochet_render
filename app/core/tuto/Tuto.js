@@ -8,11 +8,11 @@ import DataTuto from './data';
 import Text from './../Utils/Text';
 import Stroke from './CubeStroke';
 
-export default class Tuto extends PIXI.DisplayObjectContainer {
+export default class Tuto extends PIXI.Container {
 
   /**
    * [Experiment contructor]
-   * - Extends PIXI.DisplayObjectContainer
+   * - Extends PIXI.Container
    * @return void
    */
 
@@ -34,6 +34,12 @@ export default class Tuto extends PIXI.DisplayObjectContainer {
         }, delay * 1000);
       }
     }
+  }
+
+  gotoTop() {
+    TweenMax.to(this.text, 1, {
+      y:this.text.height
+    });
   }
 
   hide() {

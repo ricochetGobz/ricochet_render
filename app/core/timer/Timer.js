@@ -8,11 +8,11 @@ import Composition from "./Composition";
 import utils from './../utils';
 import adrs from './../addresses';
 
-export default class Timer extends PIXI.DisplayObjectContainer {
+export default class Timer extends PIXI.Container {
 
   /**
    * [Experiment contructor]
-   * - Extends PIXI.DisplayObjectContainer
+   * - Extends PIXI.Container
    * @return void
    */
 
@@ -22,17 +22,30 @@ export default class Timer extends PIXI.DisplayObjectContainer {
 
     this.owner = owner;
 
+    this.position.x = x;
+    this.position.y = y;
+
     this.timer = new PIXI.Graphics();
-    this.timer.lineStyle(8, 0xeeeeee);
-    this.timer.drawCircle(x, y, size);
+    this.timer.lineStyle(4, 0xeeeeee);
+    this.timer.arc(0, 0, size, Math.PI / 20, (Math.PI * 2) - (Math.PI / 20));
+    this.timer.rotation =  -  Math.PI / 2;
     this.addChild( this.timer );
 
     this.timerFull = new PIXI.Graphics();
-    this.timerFull.lineStyle(8, 0x447fd4);
-    this.timerFull.drawCircle(x, y, size);
+    this.timerFull.lineStyle(4, 0x447fd4);
+    this.timerFull.drawCircle(0, 0, size);
     this.addChild( this.timerFull );
 
-    this.addAnim(x, y, size);
+    
+
+    let options = { font:"normal 15px Circular", fill:0x447fd4, align:"center"  };
+    this.timeLeft = {min: 0 , sec:25};
+    this.text = new PIXI.Text(this.timeLeft.min + " : " + this.timeLeft.sec, options);
+    this.text.position.x = - this.text.width / 2;
+    this.text.position.y = (- this.owner.h / 2) + size / 4;
+    this.addChild(this.text);
+
+    this.addAnim(0, 0, size);
 
     this.isOn = false;
     this.compositions = [];
@@ -43,17 +56,19 @@ export default class Timer extends PIXI.DisplayObjectContainer {
 
   show() {
     this.test2.clear();
-    this.start = 0;
-    this.end = (Math.PI * 2) * 0.01;
+    this.start = Math.PI / 20;
+    this.end = (Math.PI / 20) + ((Math.PI * 2) * 0.01);
     TweenMax.to(this.timer, .5, {alpha: 1});
     TweenMax.to(this.timerFull, .5, {alpha: 1});
     TweenMax.to(this.maske, .5, {alpha: 1});
+    TweenMax.to(this.text, .5, {alpha: 1});
   }
 
   hide() {
     TweenMax.to(this.timer, .5, {alpha: 0});
     TweenMax.to(this.timerFull, .5, {alpha: 0});
     TweenMax.to(this.maske, .5, {alpha: 0});
+    TweenMax.to(this.text, .5, {alpha: 0});
   }
 
   startCountdown() {
@@ -61,7 +76,12 @@ export default class Timer extends PIXI.DisplayObjectContainer {
     console.log("timer start");
     this.compo = new Composition();
     this.compositions.push(this.compo);
-
+    let string = "0 : ";
+    TweenMax.fromTo(this.timeLeft, 30, {sec:30}, {ease:Linear.easeNone, sec:0, onUpdate:() => {
+      if (this.timeLeft.sec < 10) string = "0 : 0";
+      else string = "0 : ";
+      this.text.text = this.timeLeft.min + string + this.timeLeft.sec.toFixed(0);
+    }});
   }
 
   addAnim(x, y, size) {
@@ -76,7 +96,7 @@ export default class Timer extends PIXI.DisplayObjectContainer {
     // if(this.data.stroke) {
       this.test2 = new PIXI.Graphics();
       this.test2.beginFill(0x0000ff);
-      this.test2.arc(0, 0, size + 8, 0, Math.PI * 0.00000001);
+      this.test2.arc(0, 0, size + 4, 0, Math.PI * 0.00000001);
       this.test2.endFill();
       this.maske.position.x = x;
       this.maske.position.y = y;
@@ -122,26 +142,26 @@ export default class Timer extends PIXI.DisplayObjectContainer {
   }
 
   update() {
-    if(this.end < Math.PI * 2 && this.isOn) {
-      this.end += .01;
+    if(this.end < (Math.PI * 2) - (Math.PI / 20) && this.isOn) {
+      this.end += .004;
 
       this.test2.beginFill(0x0000ff);
 
-      this.test2.arc(0, 0, (this.size + 8), this.start, this.end);
+      this.test2.arc(0, 0, (this.size + 4), this.start, this.end);
       this.test2.drawPolygon([
         new PIXI.Point(0, 0),
-        new PIXI.Point(0 + (this.size + 8) * Math.cos(this.start), 0 + (this.size + 8) * Math.sin(this.start)),
-        new PIXI.Point(0 + (this.size + 8) * Math.cos(this.end), 0 + (this.size + 8) * Math.sin(this.end))
+        new PIXI.Point(0 + (this.size + 4) * Math.cos(this.start), 0 + (this.size + 4) * Math.sin(this.start)),
+        new PIXI.Point(0 + (this.size + 4) * Math.cos(this.end), 0 + (this.size + 4) * Math.sin(this.end))
       ]);
       this.test2.endFill();
 
       this.test3.position.x = (this.size) * Math.cos(this.end - Math.PI / 2);
       this.test3.position.y = (this.size) * Math.sin(this.end - Math.PI / 2);
 
-      this.start += .01;
+      this.start += .004;
 
       // if(this.end > Math.PI * 2) this.end = 0;
-    } else if (this.end >= Math.PI * 2) {
+    } else if (this.end >= (Math.PI * 2) - (Math.PI / 20)) {
       this.start = 0;
       this.end = (Math.PI * 2) * 0.01;
       this.owner.toggleTimer();

@@ -8,7 +8,7 @@ export default class Composition {
 
   /**
    * [Experiment contructor]
-   * - Extends PIXI.DisplayObjectContainer
+   * - Extends PIXI.Container
    * @return void
    */
 

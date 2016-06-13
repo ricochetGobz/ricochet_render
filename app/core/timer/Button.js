@@ -4,11 +4,11 @@
 *
 **/
 
-export default class Button extends PIXI.DisplayObjectContainer {
+export default class Button extends PIXI.Container {
 
   /**
    * [Experiment contructor]
-   * - Extends PIXI.DisplayObjectContainer
+   * - Extends PIXI.Container
    * @return void
    */
 
@@ -44,6 +44,15 @@ export default class Button extends PIXI.DisplayObjectContainer {
     this.wheel.position.x = 55;
     this.wheel.position.y = 55;
 
+    let check = [];
+    for (let j = 4; j < 7; j++) {
+      check.push( PIXI.Texture.fromImage(`imgs/logo/logo_0000${j}.png`));
+    }
+    this.check = new PIXI.MovieClip(check);
+    this.addChild(this.check);
+    this.check.position.x = 55;
+    this.check.position.y = 55;
+
   }
 
   activate(owner) {
@@ -55,6 +64,9 @@ export default class Button extends PIXI.DisplayObjectContainer {
 
   hide() {
     TweenMax.to(this, .5, {alpha:0});
+  }
+  show() {
+    TweenMax.to(this, .5, {alpha:1});
   }
 
   onButtonUp(owner) {
@@ -73,7 +85,11 @@ export default class Button extends PIXI.DisplayObjectContainer {
   }
 
   stop() {
-    if (this.animation) this.animation.stop();
+    if (this.animation) {
+      this.animation.stop();
+      TweenMax.to(this.button, .3, {y:0});
+      TweenMax.to(this.wheel, 1, {rotation:0});
+    }
   }
 
 
