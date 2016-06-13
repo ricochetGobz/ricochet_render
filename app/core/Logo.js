@@ -75,7 +75,7 @@ export default class Logo {
   update() {
     // console.log(this.anim);
     if (this.anim && this.anim.playing) {
-      console.log(this.anim.currentFrame);
+      // console.log(this.anim.currentFrame);
       if (this.anim.currentFrame > 87) {
         console.log("stop");
         this.anim.stop();

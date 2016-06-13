@@ -29,7 +29,12 @@ export default class Echo extends PIXI.Container{
   }
 
   init( x, y, data ) {
-    console.log(x, y)
+    console.log(x, y);
+    console.log()
+    this.position.x = x;
+    this.position.y = y;
+
+
     let i = 0,
         shapes = data.shapes,
         delta = (2 * Math.PI) / shapes.length;
@@ -41,7 +46,7 @@ export default class Echo extends PIXI.Container{
       // let factory = new Factory();
       let shape;
       if(shapes[i].sprite) {
-        shape = this.owner.spriteFactory.createAnim(shapes[i], posx, posy);
+        shape = this.owner.spriteFactory.createAnim(shapes[i], 0, 0);
         this.sprites.push(shape);
       } else {
         shape = new Factory().createShape(this, shapes[i], posx, posy);
@@ -49,7 +54,14 @@ export default class Echo extends PIXI.Container{
       }
 
       this.addChild(shape);
-      // this.addChild(shape.mask);
+
+        this.addChild(shape);
+        let point = new PIXI.Graphics();
+        point.beginFill(0xff0000);
+        point.drawCircle(0, 0, 8);
+        point.position.x = 0;
+        point.position.y = 0;
+        this.addChild(point);
     }
   }
 

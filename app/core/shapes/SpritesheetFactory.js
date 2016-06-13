@@ -58,8 +58,8 @@ export default class SpritesheetFactory {
     console.log(animations);
     const animNote = new PIXI.extras.MovieClip(animations[id]);
 
-    animNote.position.x = x - (animNote.width / 4);
-    animNote.position.y = y + (animNote.height / 8);
+    animNote.position.x = x;
+    animNote.position.y = y;
 
     animNote.anchor.x = 0.5;
     animNote.anchor.y = 0.5;
