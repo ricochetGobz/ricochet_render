@@ -17,6 +17,7 @@ const adresses = {
   OPEN_FRAMEWORKS_STATUS_CHANGE: '/openframeworks/statuschange',
   OPEN_FRAMEWORKS_CONNECTED: '/openframeworks/connected',
   OPEN_FRAMEWORKS_DISCONNECTED: '/openframeworks/disconnected',
+  OPEN_FRAMEWORKS_START_PLAYER: '/openframeworks/startplayer',
   // Kinect
   KINECT_STATUS_CHANGE: '/kinect/statuschange',
   KINECT_CONNECTED: '/kinect/connected',

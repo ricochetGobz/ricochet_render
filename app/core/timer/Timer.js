@@ -36,7 +36,7 @@ export default class Timer extends PIXI.Container {
     this.timerFull.drawCircle(0, 0, size);
     this.addChild( this.timerFull );
 
-    
+
 
     let options = { font:"normal 15px Circular", fill:0x447fd4, align:"center"  };
     this.timeLeft = {min: 0 , sec:25};
@@ -127,7 +127,7 @@ export default class Timer extends PIXI.Container {
   stopCountdown() {
     this.hide();
     let compo = this.compositions[ this.compositions.length - 1 ];
-    compo.title = "Le rire c'est le lol";
+    compo.title = "Compo";
     compo.author = "Jack";
     compo.duration = this.parseTime(Date.now() - compo.time);
     compo.createdAt = Date.now();

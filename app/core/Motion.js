@@ -40,6 +40,8 @@ export default class Motion {
    this.addElements();
    this.canShow = false;
 
+   this.introPlaying = true;
+
    this.hide();
   //  this.show();
 
@@ -52,6 +54,7 @@ export default class Motion {
  addElements() {
     this.table = new PIXI.Graphics();
     this.table.beginFill(0xffffff);
+    // this.w -= 125/2;
     this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
     this.scene.addChild(this.table);
 
@@ -94,6 +97,7 @@ export default class Motion {
     //  this.elements[i].show();
    }
    this.tuto.show();
+   this.introPlaying = false;
  }
 
  hide() {
@@ -120,14 +124,24 @@ export default class Motion {
  }
 
  displayTuto(nbr) {
-   if(this.currentNbr < 1 && nbr > 0) {
-     this.tuto.gotoTop();
-     this.tuto.stroke.hide();
-     this.timer.show();
-     this.button.show();
+   if (!this.introPlaying) {
+     if(this.currentNbr < 1 && nbr > 0) {
+      //  this.tuto.gotoTop();
+
+       this.tuto.stroke.hide();
+      //  this.timer.show();
+       this.button.show();
+       this.logo.anim.play();
+     } else if (this.currentNbr > 0 && nbr < 1) {
+       this.tuto.stroke.show();
+       this.introPlaying = true;
+       this.button.hide();
+       this.logo.anim.gotoAndPlay(0);
+     }
+     if(this.canShow) this.tuto.displayText( nbr );
+     this.currentNbr = nbr;
    }
-   if(this.canShow) this.tuto.displayText( nbr );
-   this.currentFrame = nbr;
+
  }
 
  /**
@@ -149,7 +163,7 @@ export default class Motion {
   * @return void
   */
  update( DELTA_TIME ) {
-   if(this.logo) this.logo.update();
+   if(this.logo) this.logo.update(this.currentNbr);
 
    for (var i = 0; i < this.echoes.length; i++) {
      this.echoes[i].update();
@@ -209,10 +223,13 @@ export default class Motion {
   * - Creates ehco with shapes
   * @return void
   */
- createEcho(x, y) {
+ createEcho(x, y, id) {
    if(this.canShow) {
-     let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"],
-      echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
+     let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"];
+     let echo;
+      if (id < 0) echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);
+      else echo = this.factory.createEcho(echoes[5 - id], x, y);
+      console.log(id);
       this.scene.addChildAt(echo, 1);
       echo.show();
       this.echoes.push(echo);

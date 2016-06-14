@@ -32,13 +32,13 @@ export default class Tuto extends PIXI.Container {
         setTimeout( () => {
           this.text.update(DataTuto.tuto[id], delay);
         }, delay * 1000);
-      }
+      } 
     }
   }
 
   gotoTop() {
     TweenMax.to(this.text, 1, {
-      y:this.text.height
+      y: - this.y + 150
     });
   }
 

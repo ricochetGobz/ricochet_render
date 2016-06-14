@@ -75,6 +75,10 @@ WSCtrl.on(adrs.OPEN_FRAMEWORKS_STATUS_CHANGE, (isConnected) => {
   checkInstallStatus();
 });
 
+WSCtrl.on(adrs.OPEN_FRAMEWORKS_START_PLAYER, () => {
+  // TODO start player
+});
+
 WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {
   kinectConnected = isConnected;
   checkInstallStatus();
@@ -83,9 +87,11 @@ WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {
 WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
   const cube = JSON.parse(data);
   console.log(_App.motion.scene.ratio);
-  const x = cube.x * _App.motion.scene.ratio;
-  const y = cube.y * _App.motion.scene.ratio;
-  _App.motion.createEcho(x, y);
+  // const x = cube.x * _App.motion.scene.ratio;
+  // const y = cube.y * _App.motion.scene.ratio;
+  const x = cube.x * 2.220833333333333;
+  const y = cube.y * 2.220833333333333;
+  _App.motion.createEcho(x, y, cube.soundId);
   _App.motion.timer.onAdd(cube);
 });
 

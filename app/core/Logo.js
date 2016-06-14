@@ -20,20 +20,20 @@ export default class Logo {
     this.owner = owner;
     let j;
       // Load images
-      for (j = 0; j < 90; j++) {
+      for (j = 0; j < nbrOfSprites; j++) {
         let string;
         if (j >= 100) string =  `imgs/logo/logo_00${j}.png`;
         else if (j >=10) string =  `imgs/logo/logo_000${j}.png`;
         else string =  `imgs/logo/logo_0000${j}.png`;
         animation.push( PIXI.Texture.fromImage(string));
       }
-      for (j = 90; j < nbrOfSprites; j++) {
-        let string;
-        if (j >= 100) string =  `imgs/logo/logo_00${j}.png`;
-        else if (j >=10) string =  `imgs/logo/logo_000${j}.png`;
-        else string =  `imgs/logo/logo_0000${j}.png`;
-        animation2.push( PIXI.Texture.fromImage(string));
-      }
+      // for (j = 90; j < nbrOfSprites; j++) {
+      //   let string;
+      //   if (j >= 100) string =  `imgs/logo/logo_00${j}.png`;
+      //   else if (j >=10) string =  `imgs/logo/logo_000${j}.png`;
+      //   else string =  `imgs/logo/logo_0000${j}.png`;
+      //   animation2.push( PIXI.Texture.fromImage(string));
+      // }
   }
 
   createAnim(x, y) {
@@ -55,29 +55,29 @@ export default class Logo {
   }
 
   createAnimStop(x, y) {
-    this.anim2 = new PIXI.extras.MovieClip(animation2);
-
-    this.anim2.position.x = x;
-    this.anim2.position.y = y;
-
-    this.anim2.scale.x = this.anim2.scale.y = 0.35;
-
-    this.anim2.anchor.x = 0.5;
-    this.anim2.anchor.y = 0.5;
-    this.anim2.loop = false;
-    this.anim2.animationSpeed = .5;
-
-    this.anim2.autoplay = false;
-
-    return this.anim2;
+    // this.anim2 = new PIXI.extras.MovieClip(animation2);
+    //
+    // this.anim2.position.x = x;
+    // this.anim2.position.y = y;
+    //
+    // this.anim2.scale.x = this.anim2.scale.y = 0.35;
+    //
+    // this.anim2.anchor.x = 0.5;
+    // this.anim2.anchor.y = 0.5;
+    // this.anim2.loop = false;
+    // this.anim2.animationSpeed = .5;
+    //
+    // this.anim2.autoplay = false;
+    //
+    // return this.anim2;
   }
 
-  update() {
+  update(nbr) {
     // console.log(this.anim);
-    if (this.anim && this.anim.playing) {
+    if (this.anim && this.anim.playing && nbr == 0) {
       // console.log(this.anim.currentFrame);
       if (this.anim.currentFrame > 87) {
-        console.log("stop");
+        console.log('stop');
         this.anim.stop();
         TweenMax.to(this.anim, 1, {y: this.anim.height * .7, onStart:() => {
           this.owner.show();
