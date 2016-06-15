@@ -29,8 +29,12 @@
         this.check.animationSpeed = .25;
         this.check.loop = false;
 
-        let options = { font:"normal 15px Circular", fill:0x447fd4, align:"center"  };
-        this.text = new PIXI.Text("ENREGISTRÉ", options);
+        var spaces1 = "$1 "; // put any number of spaces after the $1
+
+        let text = "ENREGISTRE".replace(/(.)(?=.)/g, spaces1);
+
+        let options = { font:"normal 11px Circular", fill:0x1FC3CD, align:"center"  };
+        this.text = new PIXI.Text(text, options);
         this.text.position.x = - this.text.width / 4;
         this.text.position.y = 55;
         this.addChild(this.text);
@@ -39,9 +43,9 @@
       }
 
       show() {
+        this.check.play();
         TweenMax.fromTo(this.text, .5, {y:70}, {y:55});
         TweenMax.to(this, .5, {alpha: 1, onComplete:() => {
-          this.check.play();
           this.hide();
         }});
       }

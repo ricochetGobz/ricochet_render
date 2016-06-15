@@ -77,6 +77,7 @@ WSCtrl.on(adrs.OPEN_FRAMEWORKS_STATUS_CHANGE, (isConnected) => {
 
 WSCtrl.on(adrs.OPEN_FRAMEWORKS_START_PLAYER, () => {
   // TODO start player
+  _App.motion.toggleTimer();
 });
 
 WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {

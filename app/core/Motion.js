@@ -108,23 +108,21 @@ export default class Motion {
 
  onButtonUp(mouseData) {
 
-      let caca  = (this.currentNbr + 1) % 4;
-      this.displayTuto(caca);
+      // let caca  = (this.currentNbr + 1) % 4;
+      // this.displayTuto(caca);
 
    let mousePosition = this.scene.renderer.plugins.interaction.mouse.global;
    this.createEcho(mousePosition.x, mousePosition.y);
  }
 
  toggleTimer() {
-
-
-   this.timer.isOn = !this.timer.isOn;
-   if ( this.timer.isOn ) {
+   if (!this.timer.isOn ) {
      this.button.hide();
-     this.timer.startCountdown();
+     this.timer.show();
    } else {
      this.button.show(2);
      this.timer.stopCountdown();
+     this.timer.hide();
    }
  }
 

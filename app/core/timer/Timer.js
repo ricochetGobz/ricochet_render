@@ -34,7 +34,7 @@ export default class Timer extends PIXI.Container {
     this.addChild( this.timer );
 
     this.timerFull = new PIXI.Graphics();
-    this.timerFull.lineStyle(4, 0x447fd4);
+    this.timerFull.lineStyle(4, 0x7FBEE8);
     this.timerFull.drawCircle(0, 0, size);
     this.addChild( this.timerFull );
 
@@ -44,8 +44,8 @@ export default class Timer extends PIXI.Container {
     this.check = new Check(0,  - this.owner.h / 2);
     this.addChild(this.check);
 
-    let options = { font:"normal 15px Circular", fill:0x447fd4, align:"center"  };
-    this.timeLeft = {min: 0 , sec:25};
+    let options = { font:"normal 15px Circular", fill:0xBC76B2, align:"center"  };
+    this.timeLeft = {min: 0 , sec:30};
     this.text = new PIXI.Text(this.timeLeft.min + " : " + this.timeLeft.sec, options);
     this.text.position.x = - this.text.width / 2;
     this.text.position.y = (- this.owner.h / 2) + size / 4;
@@ -61,17 +61,22 @@ export default class Timer extends PIXI.Container {
   }
 
   show() {
+    this.timeLeft = {min: 0 , sec:30};
+    this.isOn = true;
     this.test2.clear();
     this.start = Math.PI / 20;
     this.end = (Math.PI / 20) + ((Math.PI * 2) * 0.01);
     TweenMax.to(this.timer, .5, {alpha: 1});
     TweenMax.to(this.timerFull, .5, {alpha: 1});
     TweenMax.to(this.maske, .5, {alpha: 1});
-    TweenMax.to(this.text, .5, {alpha: 1});
+    TweenMax.to(this.text, .5, {alpha: 1, onComplete:() => {
+      this.startCountdown();
+    }});
     this.clock.show();
   }
 
   hide() {
+
     this.clock.hide();
     TweenMax.to(this.timer, .5, {alpha: 0});
     TweenMax.to(this.timerFull, .5, {alpha: 0});
@@ -80,8 +85,7 @@ export default class Timer extends PIXI.Container {
   }
 
   startCountdown() {
-    this.show();
-    this.clock.animate();
+    this.isOn = true;
     console.log("timer start");
     this.compo = new Composition();
     this.compositions.push(this.compo);
@@ -114,7 +118,7 @@ export default class Timer extends PIXI.Container {
 
       this.test3 = new PIXI.Graphics();
       this.test3.beginFill(0xffffff);
-      this.test3.lineStyle(4, 0x447fd4);
+      this.test3.lineStyle(4, 0x7FBEE8);
       this.test3.drawCircle(0, 0, 8);
       this.test3.position.x = (this.size) * Math.cos(this.end - Math.PI / 2);
       this.test3.position.y = (this.size) * Math.sin(this.end - Math.PI / 2);
@@ -134,6 +138,7 @@ export default class Timer extends PIXI.Container {
   }
 
   stopCountdown() {
+    this.isOn = false;
     this.hide();
     this.clock.stop();
     this.check.show();
