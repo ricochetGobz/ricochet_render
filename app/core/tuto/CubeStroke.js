@@ -29,7 +29,7 @@ export default class CubeStroke extends PIXI.Graphics {
   draw( x, y ) {
     let sprite = new PIXI.Sprite.fromImage('imgs/carre_cube.png');
     this.addChild(sprite);
-    sprite.scale.x = sprite.scale.y = 0.5;
+    sprite.scale.x = sprite.scale.y = 0.7;
     this.position.x = sprite.width / 4;
 
   }

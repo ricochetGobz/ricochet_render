@@ -5,6 +5,8 @@
 **/
 
 import Composition from "./Composition";
+import Clock from "./Clock";
+import Check from "./Check";
 import utils from './../utils';
 import adrs from './../addresses';
 
@@ -36,7 +38,11 @@ export default class Timer extends PIXI.Container {
     this.timerFull.drawCircle(0, 0, size);
     this.addChild( this.timerFull );
 
+    this.clock = new Clock(0,  - this.owner.h / 2);
+    this.addChild(this.clock);
 
+    this.check = new Check(0,  - this.owner.h / 2);
+    this.addChild(this.check);
 
     let options = { font:"normal 15px Circular", fill:0x447fd4, align:"center"  };
     this.timeLeft = {min: 0 , sec:25};
@@ -62,9 +68,11 @@ export default class Timer extends PIXI.Container {
     TweenMax.to(this.timerFull, .5, {alpha: 1});
     TweenMax.to(this.maske, .5, {alpha: 1});
     TweenMax.to(this.text, .5, {alpha: 1});
+    this.clock.show();
   }
 
   hide() {
+    this.clock.hide();
     TweenMax.to(this.timer, .5, {alpha: 0});
     TweenMax.to(this.timerFull, .5, {alpha: 0});
     TweenMax.to(this.maske, .5, {alpha: 0});
@@ -73,6 +81,7 @@ export default class Timer extends PIXI.Container {
 
   startCountdown() {
     this.show();
+    this.clock.animate();
     console.log("timer start");
     this.compo = new Composition();
     this.compositions.push(this.compo);
@@ -126,6 +135,8 @@ export default class Timer extends PIXI.Container {
 
   stopCountdown() {
     this.hide();
+    this.clock.stop();
+    this.check.show();
     let compo = this.compositions[ this.compositions.length - 1 ];
     compo.title = "Compo";
     compo.author = "Jack";

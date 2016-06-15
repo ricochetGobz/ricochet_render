@@ -42,7 +42,7 @@ export default class Logo {
     this.anim.position.x = x;
     this.anim.position.y = y;
 
-    this.anim.scale.x = this.anim.scale.y = 0.35;
+    this.anim.scale.x = this.anim.scale.y = 0.7;
 
     this.anim.anchor.x = 0.5;
     this.anim.anchor.y = 0.5;

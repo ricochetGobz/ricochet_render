@@ -54,7 +54,7 @@ export default class Motion {
  addElements() {
     this.table = new PIXI.Graphics();
     this.table.beginFill(0xffffff);
-    // this.w -= 125/2;
+
     this.table.drawCircle(this.w / 2, this.h / 2, this.h / 2);
     this.scene.addChild(this.table);
 
@@ -77,9 +77,9 @@ export default class Motion {
 
     this.timer = new Timer(this, this.scene.width / 2, this.scene.height / 2, this.scene.height / 2 - 50);
     this.scene.addChild(this.timer);
-    this.elements.push(this.timer);
+    // this.elements.push(this.timer);
 
-    this.button = new Button(this.scene.width / 2, 50);
+    this.button = new Button(this.scene.width / 2, 110);
     this.scene.addChild(this.button);
     this.elements.push(this.button);
     this.button.activate(this);
@@ -94,9 +94,8 @@ export default class Motion {
    this.canShow = true;
    var length = this.elements.length;
    for (var i = 0; i < length; i++) {
-    //  this.elements[i].show();
+     this.elements[i].show();
    }
-   this.tuto.show();
    this.introPlaying = false;
  }
 
@@ -108,34 +107,40 @@ export default class Motion {
  }
 
  onButtonUp(mouseData) {
+
+      let caca  = (this.currentNbr + 1) % 4;
+      this.displayTuto(caca);
+
    let mousePosition = this.scene.renderer.plugins.interaction.mouse.global;
    this.createEcho(mousePosition.x, mousePosition.y);
  }
 
  toggleTimer() {
+
+
    this.timer.isOn = !this.timer.isOn;
    if ( this.timer.isOn ) {
+     this.button.hide();
      this.timer.startCountdown();
-     this.button.animate();
    } else {
-     this.button.stop();
+     this.button.show(2);
      this.timer.stopCountdown();
    }
  }
 
  displayTuto(nbr) {
    if (!this.introPlaying) {
+     if (nbr > 2) {
+       this.button.show(0);
+     } else {
+       this.button.hide();
+     }
      if(this.currentNbr < 1 && nbr > 0) {
-      //  this.tuto.gotoTop();
-
        this.tuto.stroke.hide();
-      //  this.timer.show();
-       this.button.show();
        this.logo.anim.play();
      } else if (this.currentNbr > 0 && nbr < 1) {
        this.tuto.stroke.show();
        this.introPlaying = true;
-       this.button.hide();
        this.logo.anim.gotoAndPlay(0);
      }
      if(this.canShow) this.tuto.displayText( nbr );
