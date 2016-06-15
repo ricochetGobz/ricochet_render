@@ -89,8 +89,8 @@ WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
   console.log(_App.motion.scene.ratio);
   // const x = cube.x * _App.motion.scene.ratio;
   // const y = cube.y * _App.motion.scene.ratio;
-  const x = cube.x * 2.220833333333333;
-  const y = cube.y * 2.220833333333333;
+  const x = cube.x * 2.3;
+  const y = cube.y * 2.3;
   _App.motion.createEcho(x, y, cube.soundId);
   _App.motion.timer.onAdd(cube);
 });
