@@ -52,7 +52,6 @@ export default class Clock extends PIXI.Container {
     TweenMax.fromTo(this.wheel, .5, {y: (55 + 55 / 2) + 20}, {delay: .1, y:55 + 55 / 2, ease:Back.easeOut.config(2.4), onComplete:() => {
       this.animate();
     }});
-    tl.play();
   }
 
   animate() {

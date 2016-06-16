@@ -5,6 +5,7 @@
 **/
 
 import Factory from '../shapes/ShapeFactory';
+import Wave from '../Utils/Wave';
 
 
 const colors = [0xa8539b, 0x2ac0d1];
@@ -62,6 +63,10 @@ export default class Echo extends PIXI.Container{
         point.position.y = 0;
         this.addChild(point);
     }
+
+    this.wave = new Wave(0, 0, 150, 2);
+    this.addChild(this.wave);
+    this.wave.expand();
   }
 
   update() {
