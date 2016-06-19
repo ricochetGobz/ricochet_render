@@ -24,7 +24,7 @@ function writeInDOM(status, info) {
 }
 function start() {
   writeInDOM('ready', '');
-  if(!_App.isOn) {
+  if (!_App.isOn) {
     _App.isOn = true;
     _App.start();
   }
@@ -88,11 +88,12 @@ WSCtrl.on(adrs.KINECT_STATUS_CHANGE, (isConnected) => {
 WSCtrl.on(adrs.CUBE_PLAYED, (data) => {
   const cube = JSON.parse(data);
   console.log(_App.motion.scene.ratio);
+  // TODO update ratio calcul
   // const x = cube.x * _App.motion.scene.ratio;
   // const y = cube.y * _App.motion.scene.ratio;
   const x = cube.x * 2.3;
   const y = cube.y * 2.3;
-  _App.motion.createEcho(x, y, cube.soundId);
+  _App.motion.createEcho(x, y, cube.soundId - 1);
   _App.motion.timer.onAdd(cube);
 });
 
