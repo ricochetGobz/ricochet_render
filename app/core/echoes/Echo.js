@@ -61,7 +61,7 @@ export default class Echo extends PIXI.Container{
         point.drawCircle(0, 0, 8);
         point.position.x = 0;
         point.position.y = 0;
-        this.addChild(point);
+        // this.addChild(point);
     }
 
     this.wave = new Wave(0, 0, 150, 2);

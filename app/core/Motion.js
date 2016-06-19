@@ -108,7 +108,7 @@ export default class Motion {
 
  onButtonUp(mouseData) {
    //
-  //  let caca  = (this.currentNbr + 1) % 4;
+  //  this.currentNbr  = (this.currentNbr + 1) % 4;
   //  this.displayTuto(caca);
 
    let mousePosition = this.scene.renderer.plugins.interaction.mouse.global;
@@ -228,6 +228,7 @@ export default class Motion {
   */
  createEcho(x, y, id) {
    if(this.canShow) {
+     this.tuto.displayText( this.currentNbr, true );
      let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"];
      let echo;
       if (id < 0) echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);

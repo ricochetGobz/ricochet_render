@@ -1,21 +1,43 @@
 {
   "tuto": [
     {
-      "wording":"PLACE UN CUBE",
+      "wording":"POSE UN CUBE",
       "size": {
         "width":445,
         "height":125
       }
     },
     {
-      "wording":"POSE UN AUTRE CUBE",
+      "wording":"TOUCHE-LE POUR JOUER UN SON",
       "size": {
         "width":445,
         "height":125
       }
     },
     {
-      "wording":"CRÉE UNE COMPOSITION",
+      "wording":"JOUE TA COMPOSITION EN TOUCHANT UN CUBE",
+      "size": {
+        "width":290,
+        "height":80
+      }
+    }
+  ],
+  "touch": [
+    {
+      "size": {
+        "width":445,
+        "height":125
+      }
+    },
+    {
+      "wording":"POSE UN SECOND CUBE",
+      "size": {
+        "width":445,
+        "height":125
+      }
+    },
+    {
+      "wording":"UTILISE D'AUTRES CUBES POUR L'AMELIORER",
       "size": {
         "width":290,
         "height":80

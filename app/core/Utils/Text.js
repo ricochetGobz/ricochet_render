@@ -60,7 +60,7 @@ export default class Text extends PIXI.Graphics {
   }
 
   update(data) {
-
+    if (!data.wording) return;
     // this.text.text = data.wording;
 
     var spaces1 = "$1 "; // put any number of spaces after the $1

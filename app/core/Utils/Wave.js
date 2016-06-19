@@ -27,8 +27,8 @@ export default class Text extends PIXI.Graphics {
 
     this.time = time;
 
-    this.lineStyle( 1, 0x999999, 1 );
-    this.drawCircle( 0, 0, size);
+    this.lineStyle( 1, 0x5C74C0, 1 );
+    this.drawCircle( 0, 0, size * 2);
   }
 
   show(delay) {
@@ -45,7 +45,7 @@ export default class Text extends PIXI.Graphics {
   }
 
   expand() {
-    TweenMax.fromTo(this.scale, this.time, {x: 0, y: 0}, {x: 1, y: 1});
+    TweenMax.fromTo(this.scale, this.time / 2, {x: 0, y: 0}, {x: 1, y: 1});
     TweenMax.to( this, .5, {alpha: 0, delay: 2 * this.time / 3} );
   }
 

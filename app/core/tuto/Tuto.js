@@ -35,6 +35,17 @@ export default class Tuto extends PIXI.Container {
       }
     }
   }
+  changeTextTouch(id, delay) {
+
+    if ( this.text ) {
+      if( !this.text.hidden ) this.text.hide();
+      if( DataTuto.touch[id] ) {
+        setTimeout( () => {
+          this.text.update(DataTuto.touch[id], delay);
+        }, delay * 1000);
+      }
+    }
+  }
 
   gotoTop() {
     TweenMax.to(this.text, 1, {
@@ -54,7 +65,7 @@ export default class Tuto extends PIXI.Container {
     }
   }
 
-  displayText(id) {
+  displayText(id, touch) {
     if ( !this.text ) {
       this.text = new Text(0, 200, "PLACE UN CUBE", DataTuto.tuto[0].size, {font:"normal 10px Circular", fill:0x5C74C0});
       this.stroke = new Stroke(0, 0);
@@ -62,7 +73,8 @@ export default class Tuto extends PIXI.Container {
       this.addChild(this.stroke);
     }
 
-    this.changeText(id, .7);
+    if (!touch) this.changeText(id, .7);
+    else this.changeTextTouch(id, .7);
 
   }
 
