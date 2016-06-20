@@ -79,7 +79,7 @@ export default class Logo {
       if (this.anim.currentFrame > 87) {
         console.log('stop');
         this.anim.stop();
-        TweenMax.to(this.anim, 1, {y: this.anim.height * .7, onStart:() => {
+        TweenMax.to(this.anim, 1, {y: 50 + this.anim.height * .7, onStart:() => {
           this.owner.show();
           this.owner.displayTuto(0);
         }});

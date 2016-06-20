@@ -24,7 +24,7 @@
         this.check.scale.x = this.check.scale.y = .5;
         this.addChild(this.check);
         this.position.x = x - 55 / 2;
-        this.position.y = y + 55 / 2;
+        this.position.y = y;
 
         this.check.animationSpeed = .25;
         this.check.loop = false;

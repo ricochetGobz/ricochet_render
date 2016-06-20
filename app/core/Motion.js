@@ -80,9 +80,9 @@ export default class Motion {
     // this.elements.push(this.timer);
 
     this.button = new Button(this.scene.width / 2, 110);
-    this.scene.addChild(this.button);
-    this.elements.push(this.button);
-    this.button.activate(this);
+    // this.scene.addChild(this.button);
+    // this.elements.push(this.button);
+    // this.button.activate(this);
 
     this.table.interactive = true;
     this.table.on('mouseup', () => this.onButtonUp());
@@ -117,10 +117,10 @@ export default class Motion {
 
  toggleTimer() {
    if (!this.timer.isOn ) {
-     this.button.hide();
+    //  this.button.hide();
      this.timer.show();
    } else {
-     this.button.show(2);
+    //  this.button.show(2);
      this.timer.stopCountdown();
      this.timer.hide();
    }
@@ -128,11 +128,11 @@ export default class Motion {
 
  displayTuto(nbr) {
    if (!this.introPlaying) {
-     if (nbr > 2) {
-       this.button.show(0);
-     } else {
-       this.button.hide();
-     }
+    //  if (nbr > 2) {
+    //    this.button.show(0);
+    //  } else {
+    //    this.button.hide();
+    //  }
      if(this.currentNbr < 1 && nbr > 0) {
        this.tuto.stroke.hide();
        this.logo.anim.play();
