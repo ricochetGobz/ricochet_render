@@ -25,6 +25,8 @@ export default class Text extends PIXI.Graphics {
     }
     super();
 
+    this.posx = x;
+
     this.text = new PIXI.Text(text, options);
     this.addChild(this.text);
 
@@ -72,6 +74,7 @@ export default class Text extends PIXI.Graphics {
     this.stroke.lineStyle( 1, COLOR, 1 );
     this.stroke.position.x = -PADDING.x;
     this.stroke.position.y = -PADDING.y;
+    this.position.x = this.posx - this.text.width / 2 - PADDING.x / 2;
     this.stroke.drawRect( 0, 0, this.text.width + 2 * PADDING.x, this.text.height+ 2 * PADDING.y);
     this.addChild(this.stroke);
 
