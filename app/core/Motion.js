@@ -41,6 +41,7 @@ export default class Motion {
    this.canShow = false;
 
    this.introPlaying = true;
+   this.tutoPlaying = false;
 
    this.hide();
   //  this.show();
@@ -127,12 +128,15 @@ export default class Motion {
  }
 
  displayTuto(nbr) {
-   if (!this.introPlaying) {
+   if (nbr == 0) this.tutoPlaying = true;
+   if (!this.introPlaying && this.tutoPlaying) {
     //  if (nbr > 2) {
     //    this.button.show(0);
     //  } else {
     //    this.button.hide();
     //  }
+    if (nbr > 2) this.tutoPlaying = false;
+
      if(this.currentNbr < 1 && nbr > 0) {
        this.tuto.stroke.hide();
        this.logo.anim.play();
@@ -228,7 +232,7 @@ export default class Motion {
   */
  createEcho(x, y, id) {
    if(this.canShow) {
-     this.tuto.displayText( this.currentNbr, true );
+     if (this.tutoPlaying) this.tuto.displayText( this.currentNbr, true );
      let echoes = ["lower", "middle-low", "low", "high", "middle-high", "higher"];
      let echo;
       if (id < 0) echo = this.factory.createEcho(echoes[Math.floor(Math.random() * echoes.length)], x, y);

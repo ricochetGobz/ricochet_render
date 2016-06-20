@@ -45,7 +45,7 @@ export default class Text extends PIXI.Graphics {
   }
 
   expand() {
-    TweenMax.fromTo(this.scale, this.time * 0.65, {x: 0, y: 0}, {x: 0.9, y: 0.9, ease:Power3.easeOut});
+    TweenMax.fromTo(this.scale, this.time * 0.65, {x: 0, y: 0}, {x: 0.85, y: 0.85, ease:Power3.easeOut});
     TweenMax.to( this, this.time / 2, {alpha: 0, delay: this.time / 3, ease:Power4.easeOut} );
   }
 

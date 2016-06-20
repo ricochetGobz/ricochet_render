@@ -81,7 +81,7 @@ export default class Logo {
         this.anim.stop();
         TweenMax.to(this.anim, 1, {y: 50 + this.anim.height * .7, onStart:() => {
           this.owner.show();
-          this.owner.displayTuto(0);
+          if (this.owner.tutoPlaying) this.owner.displayTuto(0);
         }});
       }
     } else if (this.anim2 && this.anim2.playing) {
